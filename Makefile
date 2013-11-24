@@ -3,12 +3,52 @@ CS=node_modules/coffee-script/bin/coffee
 MVERSION=node_modules/mversion/bin/version
 VERSION=`$(MVERSION) | sed -E 's/\* package.json: //g'`
 
-ISTANBUL=node_modules/istanbul/lib/cli.js
+# POLVO=node_modules/polvo/bin/polvo
+POLVO=polvo
+
+SELENIUM=test/services/selenium-server-standalone-2.37.0.jar
+SAUCE_CONNECT=test/services/Sauce-Connect.jar
+CHROME_DRIVER=test/services/chromedriver
+
 MOCHA=node_modules/mocha/bin/mocha
-_MOCHA=node_modules/mocha/bin/_mocha
 COVERALLS=node_modules/coveralls/bin/coveralls.js
 
-setup:
+
+install_test_suite:
+	@mkdir -p test/services
+
+	@echo '-----'
+	@echo 'Downloading Selenium..'
+	@curl -o test/services/selenium-server-standalone-2.37.0.jar \
+		https://selenium.googlecode.com/files/selenium-server-standalone-2.37.0.jar
+	@echo 'Done.'
+
+	@echo '-----'
+	@echo 'Downloading Chrome Driver..'
+	@curl -o test/services/chromedriver.zip \
+		http://chromedriver.storage.googleapis.com/2.6/chromedriver_mac32.zip
+	@echo 'Done.'
+	
+	@echo '-----'
+	@echo 'Unzipping chromedriver..'
+	@cd test/services/; unzip chromedriver.zip; \
+		rm chromedriver.zip; cd -
+	@echo 'Done.'
+
+	@echo '-----'
+	@echo 'Downloading Sauce Connect..'
+	@curl -o test/services/sauceconnect.zip \
+		http://saucelabs.com/downloads/Sauce-Connect-latest.zip
+	
+	@echo '-----'
+	@echo 'Unzipping Sauce Connect..'
+	@cd test/services/; unzip sauceconnect.zip; \
+		rm NOTICE.txt license.html sauceconnect.zip; cd -
+	@echo '-----'
+	@echo 'Done.'
+	@echo 
+
+setup: install_test_suite
 	@npm install
 
 
@@ -16,32 +56,81 @@ setup:
 build:
 	@$(CS) -bco lib src
 
+watch:
+	@$(CS) -wbco lib src
 
 
-test: build
+
+test.watch:
+	@$(POLVO) -ws --base test/fixtures/general
+
+test.watch.split:
+	@$(POLVO) -wsxb test/fixtures/general
+
+
+
+
+test.build.prod:
+	@echo 'Building app before testing..'
+	@$(POLVO) -rb test/fixtures/general > /dev/null
+
+test.build.split:
+	@echo 'Compiling app before testing..'
+	@$(POLVO) -cxb test/fixtures/general > /dev/null
+
+
+
+# SELENIUM & SAUCE CONNECT
+test.selenium.run:
+	@java -jar $(SELENIUM) -Dwebdriver.chrome.driver=$(CHROME_DRIVER)
+
+test.sauce.connect.run:
+	@java -jar $(SAUCE_CONNECT) $(SAUCE_USERNAME) $(SAUCE_ACCESS_KEY)
+
+
+
+
+test: test.build.prod
 	@$(MOCHA) --compilers coffee:coffee-script \
-		--ui bdd \
-		--reporter spec \
-		--recursive \
-		test
+	--ui bdd \
+	--reporter spec \
+	--timeout 600000 \
+	test/tests/runner.coffee --env='local'
 
-test.coverage: build
-	@$(ISTANBUL) cover $(_MOCHA) -- \
-		--compilers coffee:coffee-script \
-		--ui bdd \
-		--reporter spec \
-		--recursive \
-		test
+test.cover: test.build.split
+	@$(MOCHA) --compilers coffee:coffee-script \
+	--ui bdd \
+	--reporter spec \
+	--timeout 600000 \
+	test/tests/runner.coffee --env='local' --coverage
 
-test.coverage.preview: test.coverage
+test.cover.preview: test.cover
 	@cd coverage/lcov-report && python -m SimpleHTTPServer 8080
 
-test.coverage.coveralls: test.coverage
+test.cover.coveralls: test.cover
 	@sed -i.bak \
-		"s/^.*the-router\/lib/SF:lib/g" \
+		"s/^.*__split__\/src/SF:src/g" \
 		coverage/lcov.info
 
-	@cat coverage/lcov.info | $(COVERALLS)
+	cat coverage/lcov.info  #| $(COVERALLS)
+
+
+
+
+test.sauce: test.build.prod
+	@$(MOCHA) --compilers coffee:coffee-script \
+	--ui bdd \
+	--reporter spec \
+	--timeout 600000 \
+	test/tests/runner.coffee --env='sauce labs'
+
+test.sauce.cover: test.build.split
+	@$(MOCHA) --compilers coffee:coffee-script \
+	--ui bdd \
+	--reporter spec \
+	--timeout 600000 \
+	test/tests/runner.coffee --env='sauce labs' --coverage
+
 
 
 

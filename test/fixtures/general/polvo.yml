@@ -1,0 +1,11 @@
+server:
+  root: ./public
+  port: 8080
+
+input:
+  - ./src
+
+output:
+  js: ./public/app.js
+
+boot: ./src/app

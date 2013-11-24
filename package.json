@@ -24,14 +24,21 @@
     "node": ">= 0.10"
   },
   "dependencies": {
-    "the-event": "~0.3.0"
+    "the-event": "~0.3.0",
+    "html5-history-api": "~4.0.9"
   },
   "devDependencies": {
+    "wd": "0.1.x",
     "coffee-script": "1.6.x",
     "chai": "1.8.x",
     "mocha": "1.14.x",
     "mversion": "0.2.x",
-    "istanbul": "0.1.x",
-    "coveralls": "2.3.x"
+    "coveralls": "2.3.x",
+    "istanbul-middleware": "0.1.x",
+    "express": "3.3.x",
+    "polvo": "~0.6.0",
+    "fs-util": "0.3.x",
+    "optimist": "0.6.x",
+    "request": "~2.27.0"
   }
 }

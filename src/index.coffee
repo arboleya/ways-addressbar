@@ -18,6 +18,7 @@ module.exports = class RouterHttp extends Event
 
   push_state:( url, title, state )->
     history.pushState state, title, url
+    @emit 'url:change', @get_url()
 
   replace_state:( url, title, state )->
     history.replaceState state, title, url
