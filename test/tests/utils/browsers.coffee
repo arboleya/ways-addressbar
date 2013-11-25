@@ -11,37 +11,36 @@ exports['sauce labs'] = ->
     
     # phantomjs
 
-    # # chrome
-    # chrome_linux
+    # -- chrome
+    chrome_linux
     # chrome_win8
     # chrome_mountain
 
-    # # firefox
+    # -- firefox
     # firefox_win8
-    # firefox_linux
+    firefox_linux
     # firefox_snow
 
-    # # safari
+    # safari
     # safari5_win7
     # safari5_snow
-    # safari6_mountain
+    safari6_mountain
 
-    # # ie
+    # -- ie
     # ie6_winxp
     # ie7_winxp
-    ie8_winxp
-
+    # ie8_winxp
     ie8_win7
     ie9_win7
-
     ie10_win8
-    
-    # # ios
-    # ios_iphone
-    # ios_ipad
 
-    # # android
-    # # none - awiting sauce labs to support it
+    # -- ios
+    ios_61_iphone
+    ios_61_ipad
+
+    # -- android
+    android_40_phone
+    android_40_tablet
   ]
 
 
@@ -218,31 +217,33 @@ ie10_win8 =
 # ios
 # ----------------------------------------------------------------------------
 
-ios_iphone = 
+ios_61_iphone = 
   browserName: 'iphone'
   platform: 'OS X 10.8'
-  tags: ['the-router-browser', 'ios', 'iphone']
+  tags: ['the-router-browser', 'ios', '6.1', 'iphone']
   'record-video': true
 
-ios_ipad = 
+ios_61_ipad = 
   browserName: 'ipad'
   platform: 'OS X 10.8'
-  tags: ['the-router-browser', 'ios', 'ipad']
+  tags: ['the-router-browser', 'ios', '6.1', 'ipad']
   'record-video': true
 
 
 # android
 # ----------------------------------------------------------------------------
 
-android_phone = 
+android_40_phone = 
   browserName: 'android'
+  version: '4.0'
   platform: 'Linux'
-  tags: ['the-router-browser', 'android', 'phone']
+  tags: ['the-router-browser', 'android', '4.0', 'phone']
   'record-video': true
 
-android_tablet = 
+android_40_tablet = 
   browserName: 'android'
+  version: '4.0'
   'device-type': 'tablet'
   platform: 'Linux'
-  tags: ['the-router-browser', 'android', 'tablet']
+  tags: ['the-router-browser', 'android', '4.0', 'tablet']
   'record-video': true
