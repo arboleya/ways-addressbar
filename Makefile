@@ -131,6 +131,8 @@ test.sauce.cover: test.build.split
 	--timeout 600000 \
 	test/tests/runner.coffee --env='sauce labs' --coverage
 
+test.sauce.cover.preview: test.sauce.cover
+	@cd coverage/lcov-report && python -m SimpleHTTPServer 8080
 
 
 
