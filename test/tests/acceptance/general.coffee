@@ -24,9 +24,9 @@ exports.test = ( browser, pass, timeout )->
           el.click (err)->
             should.not.exist err
 
-            browser.eval '$("#location").val();', (err, location)->
+            browser.eval 'window.middleware.pathname()', (err, pathname)->
               should.not.exist err
-              location.should.equal '/test/a'
+              pathname.should.equal '/test/a'
               pass done
 
       it 'click /test/b link', (done)->
@@ -35,9 +35,9 @@ exports.test = ( browser, pass, timeout )->
           el.click (err)->
             should.not.exist err
 
-            browser.eval '$("#location").val();', (err, location)->
+            browser.eval 'window.middleware.pathname()', (err, pathname)->
               should.not.exist err
-              location.should.equal '/test/b'
+              pathname.should.equal '/test/b'
               pass done
 
       it 'click /test/c link', (done)->
@@ -46,7 +46,7 @@ exports.test = ( browser, pass, timeout )->
           el.click (err)->
             should.not.exist err
 
-            browser.eval '$("#location").val();', (err, location)->
+            browser.eval 'window.middleware.pathname()', (err, pathname)->
               should.not.exist err
-              location.should.equal '/test/c'
+              pathname.should.equal '/test/c'
               pass done

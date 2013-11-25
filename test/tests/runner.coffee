@@ -10,7 +10,6 @@ browsers = do (require './utils/browsers')[env]
 hook = require './utils/hook'
 server = require './server'
 
-
 # compute timeout notify_sauce_labs flag based on env
 if env is 'local'
   timeout = 10000
@@ -21,7 +20,7 @@ else
 
 
 # base url to test
-base_url = "http://localhost:8080/"
+base_url = "http://localhost:3000/"
 
 
 # list of test files
@@ -38,6 +37,16 @@ sauce_conf =
 
 # starts server
 server.start coverage
+
+
+# b
+download = require './utils/downloader'
+after (done)->
+  return done() unless coverage
+  console.log 'Assembling coverage..'
+  download base_url, ->
+    console.log 'Done.'
+    done()
 
 
 # mounting suites
@@ -66,7 +75,6 @@ describe "[#{env}]", ->
       if env is 'local' or caps.name is 'phantomjs'
         browser = do wd.remote
       else
-        console.log 'using sauce labs'
         browser = wd.remote sauce_conf
 
       # SET MOCHA HOOKS

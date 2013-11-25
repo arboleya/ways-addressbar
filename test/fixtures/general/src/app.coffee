@@ -1,11 +1,14 @@
 Middleware = require '../../../../src'
 
-middleware = new Middleware
-middleware.on 'url:change', ->
-  $('#location').val middleware.get_url()
+window.middleware = middleware = new Middleware
+
+middleware.on 'url:change', (pathname)->
+  $('#location').val pathname
 
 $(document).ready ->
+  $('#location').val middleware.pathname()
+
   $( 'a[href*="/"]' ).each ( index, item ) =>
     $( item ).click ( event ) ->
-      middleware.push_state $( event.delegateTarget ).attr 'href'
+      middleware.push $( event.delegateTarget ).attr 'href'
       return off

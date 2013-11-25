@@ -10,9 +10,10 @@ index = path.join root, 'index.html'
 
 matcher = (req)->
     parsed = url.parse req.url
-    return /__split__\/src\/index\.js/.test parsed.pathname
+    return /__split__\/src\//.test parsed.pathname
 
 exports.start = (coverage)->
+
   if coverage
     istanbul.hookLoader __dirname, verbose: true
 
@@ -32,4 +33,4 @@ exports.start = (coverage)->
     else
       res.end (fs.readFileSync index, 'utf-8')
   app.use app.router
-  app.listen 8080
+  app.listen 3000
