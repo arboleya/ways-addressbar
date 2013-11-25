@@ -1,26 +1,29 @@
-History = require 'html5-history-api'
 Event = require 'the-event'
 
-module.exports = class RouterHttp extends Event
+History = require './history'
+Hash = require './hash'
+
+module.exports = class RouterBrowser extends Event
+
+  history: null
 
   constructor:->
-    if window.addEventListener?
-      prefixes = ['addEventListener', '']
+    if window.history.pushState?
+      @history = new History
     else
-      prefixes = ['attachEvent', 'on']
+      @history = new Hash
 
-    window[prefixes[0]] prefixes[1] + 'popstate', =>
-      @emit 'url:change', @get_url()
-    , false
+    @history.on 'url:change', (pathname)=>
+      @emit 'url:change', pathname
 
-  get_url:->
-    (history.location || document.location).pathname
+  pathname:->
+    @history.pathname()
 
-  push_state:( url, title, state )->
-    history.pushState state, title, url
-    @emit 'url:change', @get_url()
+  state:->
+    @history.state()
 
-  replace_state:( url, title, state )->
-    history.replaceState state, title, url
+  push:( url, title, state )->
+    @history.push url, title, state
 
-module.exports = RouterHttp
+  replace:( url, title, state )->
+    @history.replace state, title, url
