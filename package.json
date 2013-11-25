@@ -24,8 +24,7 @@
     "node": ">= 0.10"
   },
   "dependencies": {
-    "the-event": "~0.3.0",
-    "html5-history-api": "~4.0.9"
+    "the-event": "0.3.x"
   },
   "devDependencies": {
     "wd": "0.1.x",
@@ -36,9 +35,9 @@
     "coveralls": "2.3.x",
     "istanbul-middleware": "0.1.x",
     "express": "3.3.x",
-    "polvo": "~0.6.0",
+    "polvo": "0.6.x",
     "fs-util": "0.3.x",
     "optimist": "0.6.x",
-    "request": "~2.27.0"
+    "request": "2.27.x"
   }
 }
