@@ -1,9 +1,5 @@
 should = do (require 'chai').should
 request = require 'request'
-spawn = (require 'child_process').spawn
-fs = require 'fs'
-fsu = require 'fs-util'
-path = require 'path'
 
 user = process.env.SAUCE_USERNAME
 key = process.env.SAUCE_ACCESS_KEY
@@ -28,7 +24,7 @@ module.exports = (ctx, browser, caps, base_url, notify_sauce_labs, coverage) ->
     if not coverage
       return quit browser, failures, notify_sauce_labs, done
 
-    console.log '\nGenerating test coverage..'
+    console.log '\nSaving test coverage..'
 
     browser.eval 'window.__coverage__', (err, coverage)->
       should.not.exist err
@@ -36,7 +32,7 @@ module.exports = (ctx, browser, caps, base_url, notify_sauce_labs, coverage) ->
 
       post_coverage base_url, coverage, ->
         quit browser, failures, notify_sauce_labs, ->
-          console.log 'Done.'
+          console.log 'Done.\n\n'
           do done
 
   ctx.beforeEach ->
@@ -84,20 +80,4 @@ post_coverage = ( base_url, coverage, done )->
 
   request opts, (err, res)->
     should.not.exist err
-    download_coverage base_url, done
-
-download_coverage = (base_url, done)->
-  output_dir = path.join __dirname, '..', '..', '..', 'coverage'
-  fsu.rm_rf output_dir if fs.existsSync output_dir
-  fsu.mkdir_p output_dir
-
-  args = ['-o', 'coverage.zip', base_url + 'coverage/download']
-  curl = spawn 'curl', args, cwd: output_dir
-
-  curl.on 'exit', (code)->
-    unzip_coverage output_dir, done
-
-unzip_coverage = (output_dir, done)->
-  unzip = spawn 'unzip', [ 'coverage.zip' ], cwd: output_dir
-  unzip.on 'exit', (code)->
-    do done
+    done()
