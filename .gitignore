@@ -4,4 +4,5 @@ node_modules
 coverage
 
 test/services
-test/fixtures/general/public
+test/fixtures/general/public/app.js
+test/fixtures/general/public/__split__
