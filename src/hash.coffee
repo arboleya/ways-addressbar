@@ -1,47 +1,50 @@
 Event = require 'the-event'
 
+class PseudoHistory extends Array
+  state: null
+
+
 module.exports = class Hash extends Event
 
-  states: null
-  current_state: null
+  history: null
 
   constructor:->
-    @states = []
+    @history = new PseudoHistory
 
     hash = window.location.hash
     pathname = window.location.pathname
 
     if hash.length is 0
       if pathname.length > 1
-        return window.location.href = '/#'+ pathname
+        window.location.href = '/#'+ pathname
       else
-        window.location.href = '/#/'
+        window.location.hash = '/'
 
-    if window.addEventListener?
-      listen = 'addEventListener'
-      event_name = 'hashchange'
-    else
-      listen = 'attachEvent'
-      event_name = 'onhashchange'
+    # THIS BECAME USELESS SINCE BROWSERS THAT DOESN'T SUPPORT
+    # PUSHSTATE USES `attachEvent` (ie8 and ie9)
 
-    window[listen] event_name, =>
+      # if window.addEventListener?
+      #   listen = 'addEventListener'
+      #   event_name = 'popstate'
+      # else
+      #   listen = 'attachEvent'
+      #   event_name = 'onpopstate'
+      #   
+      # window[listen] event_name, =>
+
+    window.attachEvent 'onhashchange', =>
       @emit 'url:change', @pathname()
     , false
 
-  state:->
-    @current_state
-
   pathname:->
-    if (hash = window.location.hash).length >= 2
-      return hash.toString().substr(1)
-    return '/'
+    window.location.hash.toString().substr(1)
 
   push:( url, title, state )->
-    @states.push @current_state = state
+    @history.push @history.state = state
     document.title = title if title?
     window.location.hash = url
 
   replace:( url, title, state )->
-    @states[states.length-1] = @current_state = state
+    @history[@history.length-1] = @history.state = state
     document.title = title if title?
     window.location.hash.replace url

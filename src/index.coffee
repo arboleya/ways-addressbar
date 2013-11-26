@@ -5,25 +5,23 @@ Hash = require './hash'
 
 module.exports = class RouterBrowser extends Event
 
-  history: null
+  api: null
 
-  constructor:->
+  constructor:( before_redirect )->
     if window.history.pushState?
-      @history = new History
+      @api = new History
     else
-      @history = new Hash
-
-    @history.on 'url:change', (pathname)=>
+      @api = new Hash before_redirect
+    
+    @history = @api.history
+    @api.on 'url:change', (pathname)=>
       @emit 'url:change', pathname
 
   pathname:->
-    @history.pathname()
-
-  state:->
-    @history.state()
+    @api.pathname()
 
   push:( url, title, state )->
-    @history.push url, title, state
+    @api.push url, title, state
 
   replace:( url, title, state )->
-    @history.replace state, title, url
+    @api.replace url, title, state
