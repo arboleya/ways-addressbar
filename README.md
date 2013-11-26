@@ -3,8 +3,11 @@
 Simple http-middleware for [The Router](https://github.com/theoricus/the-router)
 of [Theoricus](https://github.com/theoricus/theoricus) framework.
 
-This uses the [HTML5 History API](https://github.com/devote/HTML5-History-API)
-library under the hoods. 
+[![Stories in Ready](https://badge.waffle.io/theoricus/the-router-browser.png)](http://waffle.io/theoricus/the-router-browser)
+
+[![Build Status](https://travis-ci.org/theoricus/the-router-browser.png?branch=master)](http://travis-ci.org/theoricus/the-router-browser) [![Coverage Status](https://coveralls.io/repos/theoricus/the-router-browser/badge.png)](https://coveralls.io/r/theoricus/the-router-browser)
+
+[![Dependency Status](https://gemnasium.com/theoricus/the-router-browser.png)](https://gemnasium.com/theoricus/the-router-browser) [![NPM version](https://badge.fury.io/js/polvo.png)](http://badge.fury.io/js/polvo)
 
 > Attention, is a **WIP**! Do not use it yet.
 
