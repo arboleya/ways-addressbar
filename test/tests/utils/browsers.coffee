@@ -18,29 +18,29 @@ exports['sauce labs'] = ->
 
     # -- firefox
     # firefox_win8
-    firefox_linux
+    ################# firefox_linux
     # firefox_snow
 
     # safari
     # safari5_win7
     # safari5_snow
-    safari6_mountain
+    ############### safari6_mountain
 
     # -- ie
     # ie6_winxp
     # ie7_winxp
     # ie8_winxp
     ie8_win7
-    ie9_win7
+    #################### ie9_win7
     ie10_win8
 
-    # -- ios
-    ios_61_iphone
-    ios_61_ipad
+    # # -- ios
+    # ios_61_iphone
+    # ios_61_ipad
 
-    # -- android
-    android_40_phone
-    android_40_tablet
+    # # -- android
+    # android_40_phone
+    # android_40_tablet
   ]
 
 
@@ -206,6 +206,14 @@ ie9_win7 =
 
 # win 8
 
+ie10_win8 = 
+  browserName: 'internet explorer'
+  version: '10'
+  platform: 'Windows 8'
+  tags: ['the-router-browser', 'ie10', 'win8']
+  'record-video': true
+
+# win 8.1
 ie10_win8 = 
   browserName: 'internet explorer'
   version: '10'

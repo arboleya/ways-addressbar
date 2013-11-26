@@ -32,5 +32,7 @@ exports.start = (coverage)->
       res.end 'File not found: ' + req.url
     else
       res.end (fs.readFileSync index, 'utf-8')
+
   app.use app.router
-  app.listen 3000
+  app.listen 8080
+  console.log 'Fixture running on http://localhost:8080'

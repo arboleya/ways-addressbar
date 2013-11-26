@@ -20,7 +20,8 @@ else
 
 
 # base url to test
-base_url = "http://localhost:3000/"
+base_url = 'http://localhost:8080/'
+entry_url = base_url + 'entry'
 
 
 # list of test files
@@ -78,7 +79,7 @@ describe "[#{env}]", ->
         browser = wd.remote sauce_conf
 
       # SET MOCHA HOOKS
-      pass = hook @, browser, caps, base_url, notify_sauce_labs, coverage
+      pass = hook @, browser, caps, entry_url, base_url, notify_sauce_labs, coverage
 
       for file in files
         

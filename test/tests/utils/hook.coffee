@@ -5,16 +5,15 @@ user = process.env.SAUCE_USERNAME
 key = process.env.SAUCE_ACCESS_KEY
 build_id = process.env.TRAVIS_BUILD_NUMBER or (do new Date().getTime)
 
-module.exports = (ctx, browser, caps, base_url, notify_sauce_labs, coverage) ->
+module.exports = (ctx, browser, caps, entry_url, base_url, notify_sauce_labs, coverage) ->
 
   passed = false
   failures = 0
 
   ctx.beforeAll (done)->
     browser.init caps, (err)->
-      console.log err if err?
       should.not.exist err
-      browser.get base_url, (err)->
+      browser.get entry_url, (err)->
         console.log err if err?
         should.not.exist err
         do done

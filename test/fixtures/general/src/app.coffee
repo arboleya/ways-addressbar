@@ -3,10 +3,10 @@ Middleware = require '../../../../src'
 window.middleware = middleware = new Middleware
 
 middleware.on 'url:change', (pathname)->
-  $('#location').val pathname
+  $('#pathname').val pathname
 
 $(document).ready ->
-  $('#location').val middleware.pathname()
+  $('#pathname').val middleware.pathname()
 
   $( 'a[href*="/"]' ).each ( index, item ) =>
     $( item ).click ( event ) ->
