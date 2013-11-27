@@ -77,7 +77,7 @@ describe "[#{env}]", ->
       pass = hook @, browser, caps, entry_url, base_url, notify_sauce, cover
 
       # list of test files
-      files = fsu.find (path.join __dirname, 'acceptance'), /\.coffee$/m
+      files = fsu.find (path.join __dirname, 'functional'), /\.coffee$/m
 
       for file in files
         
