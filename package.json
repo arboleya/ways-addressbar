@@ -27,7 +27,7 @@
     "the-event": "0.3.x"
   },
   "devDependencies": {
-    "wd": "0.1.x",
+    "wd": "0.2.x",
     "coffee-script": "1.6.x",
     "chai": "1.8.x",
     "mocha": "1.14.x",
