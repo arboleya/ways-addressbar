@@ -61,7 +61,7 @@ exports.test = ( browser, pass, timeout )->
     describe '[buttons]', ->
 
       it 'click back button', (done)->
-        browser.back (err)->
+        browser.execute 'history.go(-1)', (err)->
           should.not.exist err
           browser.eval 'window.middleware.pathname()', (err, pathname)->
             should.not.exist err
@@ -69,7 +69,7 @@ exports.test = ( browser, pass, timeout )->
             pass done
 
       it 'click back button', (done)->
-        browser.back (err)->
+        browser.execute 'history.go(-1)', (err)->
           should.not.exist err
           browser.eval 'window.middleware.pathname()', (err, pathname)->
             should.not.exist err
@@ -77,7 +77,7 @@ exports.test = ( browser, pass, timeout )->
             pass done
 
       it 'click forward button', (done)->
-        browser.forward (err)->
+        browser.execute 'history.go(1)', (err)->
           should.not.exist err
           browser.eval 'window.middleware.pathname()', (err, pathname)->
             should.not.exist err
