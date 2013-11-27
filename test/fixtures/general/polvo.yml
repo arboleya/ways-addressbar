@@ -1,6 +1,6 @@
 server:
   root: ./public
-  port: 3000
+  port: 8080
 
 input:
   - ./src
