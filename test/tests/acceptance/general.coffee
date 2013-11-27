@@ -1,5 +1,4 @@
 should = do (require 'chai').should
-# conds = require '../utils/conditions'
 
 exports.test = ( browser, pass, timeout )->
 
