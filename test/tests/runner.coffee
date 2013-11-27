@@ -40,7 +40,7 @@ sauce_conf =
 server.start coverage
 
 
-# b
+# downloading coverage
 download = require './utils/downloader'
 after (done)->
   return done() unless coverage
