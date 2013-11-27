@@ -2,14 +2,12 @@ exports['local'] = ->
   return [
     # phantomjs
     chrome_mountain
-    # firefox_mountain
-    # safari6_mountain
+    firefox_mountain
+    safari6_mountain
   ]
 
 exports['sauce labs'] = ->
   return [
-    
-    # phantomjs
 
     # -- chrome
     chrome_linux
@@ -17,28 +15,26 @@ exports['sauce labs'] = ->
     # chrome_mountain
 
     # -- firefox
+    firefox_linux
     # firefox_win8
-    ################# firefox_linux
     # firefox_snow
 
-    # safari
+    # -- safari
     # safari5_win7
     # safari5_snow
-    ############### safari6_mountain
+    safari6_mountain
 
     # -- ie
-    # ie6_winxp
-    # ie7_winxp
-    # ie8_winxp
     ie8_win7
-    #################### ie9_win7
+    ie9_win7
     ie10_win8
+    ie11_win81
 
-    # # -- ios
-    # ios_61_iphone
-    # ios_61_ipad
+    # -- ios
+    ios_61_iphone
+    ios_61_ipad
 
-    # # -- android
+    # -- android (NOTE: android and sauce connect isn't currently working)
     # android_40_phone
     # android_40_tablet
   ]
@@ -214,11 +210,12 @@ ie10_win8 =
   'record-video': true
 
 # win 8.1
-ie10_win8 = 
+
+ie11_win81 = 
   browserName: 'internet explorer'
-  version: '10'
-  platform: 'Windows 8'
-  tags: ['the-router-browser', 'ie10', 'win8']
+  version: '11'
+  platform: 'Windows 8.1'
+  tags: ['the-router-browser', 'ie11', 'win8.1']
   'record-video': true
 
 

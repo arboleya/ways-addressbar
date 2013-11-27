@@ -16,7 +16,11 @@ module.exports = (ctx, browser, caps, entry_url, base_url, notify_sauce_labs, co
       browser.get entry_url, (err)->
         console.log err if err?
         should.not.exist err
-        do done
+
+        # gives some time for initialization
+        new setTimeout ->
+          done()
+        , 1500
 
   ctx.afterAll (done)->
 
