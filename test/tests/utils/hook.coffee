@@ -1,11 +1,13 @@
 should = do (require 'chai').should
 request = require 'request'
+coverage = require './coverage'
+sauce = require './sauce'
 
 user = process.env.SAUCE_USERNAME
 key = process.env.SAUCE_ACCESS_KEY
 build_id = process.env.TRAVIS_BUILD_NUMBER or (do new Date().getTime)
 
-module.exports = (ctx, browser, caps, entry_url, base_url, notify_sauce_labs, coverage) ->
+module.exports = (ctx, browser, caps, entry_url, base_url, notify, cover) ->
 
   passed = false
   failures = 0
@@ -14,27 +16,21 @@ module.exports = (ctx, browser, caps, entry_url, base_url, notify_sauce_labs, co
     browser.init caps, (err)->
       should.not.exist err
       browser.get entry_url, (err)->
-        console.log err if err?
         should.not.exist err
 
         # gives some time for initialization
-        new setTimeout ->
-          done()
-        , 1500
+        new setTimeout (-> done()), 1500
+
 
   ctx.afterAll (done)->
 
-    if not coverage
-      return quit browser, failures, notify_sauce_labs, done
+    if not cover
+      return quit browser, failures, notify, done
 
     console.log '\nSaving test coverage..'
-
-    browser.eval 'window.__coverage__', (err, coverage)->
-      should.not.exist err
-      should.exist coverage
-
-      post_coverage base_url, coverage, ->
-        quit browser, failures, notify_sauce_labs, ->
+    browser.eval 'window.__coverage__', (err, cover_data)->
+      coverage.save base_url, cover_data, ->
+        quit browser, failures, notify, ->
           console.log 'Done.\n\n'
           do done
 
@@ -49,38 +45,10 @@ module.exports = (ctx, browser, caps, entry_url, base_url, notify_sauce_labs, co
     do done
 
 
-quit = (browser, failures, notify_sauce_labs, done) ->
+quit = (browser, failures, notify, done) ->
   browser.quit (err)->
     should.not.exist err
-    
-    if not notify_sauce_labs
-      do done
+    if notify
+      sauce.notify browser.sessionID, (failures is 0), done
     else
-      do_notify_sauce_labs browser.sessionID, (failures is 0), done
-
-
-do_notify_sauce_labs = ( job_id, status, done) ->
-  opts =
-    url: "http://#{user}:#{key}@saucelabs.com/rest/v1/#{user}/jobs/#{job_id}"
-    method: 'PUT'
-    headers: 'Content-Type': 'text/json'
-    body: JSON.stringify
-      passed: status
-      public: true
-      build: build_id
-    jar: false # disable cookies: avoids CSRF issues
-
-  request opts, (err, res)->
-    should.not.exist err
-    do done
-
-post_coverage = ( base_url, coverage, done )->
-  opts =
-    url: base_url + 'coverage/client'
-    method: 'POST'
-    headers: 'Content-Type': 'application/json'
-    body: JSON.stringify coverage
-
-  request opts, (err, res)->
-    should.not.exist err
-    done()
+      done()

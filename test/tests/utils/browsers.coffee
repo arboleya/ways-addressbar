@@ -2,8 +2,8 @@ exports['local'] = ->
   return [
     # phantomjs
     chrome_mountain
-    firefox_mountain
-    safari6_mountain
+    # firefox_mountain
+    # safari6_mountain
   ]
 
 exports['sauce labs'] = ->

@@ -4,7 +4,7 @@ path = require 'path'
 fs = require 'fs'
 url = require 'url'
 
-root = path.join __dirname, '..', 'fixtures', 'general', 'public'
+root = path.join __dirname, '..', '..', 'fixtures', 'general', 'public'
 index = path.join root, 'index.html'
 
 
@@ -12,14 +12,14 @@ matcher = (req)->
     parsed = url.parse req.url
     return /__split__\/src\//.test parsed.pathname
 
-exports.start = (coverage)->
+exports.start = (cover)->
 
-  if coverage
+  if cover
     istanbul.hookLoader __dirname, verbose: true
 
   app = do express
 
-  if coverage
+  if cover
     app.use '/coverage', istanbul.createHandler verbose: true, resetOnGet: true
     app.use istanbul.createClientHandler root, matcher: matcher
     app.use express.static root
