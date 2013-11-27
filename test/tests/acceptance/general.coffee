@@ -94,12 +94,16 @@ exports.test = ( browser, pass, timeout )->
           pass done
 
       it 'pushing new state', (done)->
-        browser.back (err)->
+        cmd = "window.middleware.push('/test', 'Hello', {name:'John'});"
+        browser.execute cmd, (err)->
           should.not.exist err
-          cmd = "window.middleware.push('/test', 'Hello', {name:'John'})"
-          browser.eval cmd, (err)->
-            should.not.exist err
-            pass done
+          pass done
+
+      it 'change event should be emitted when pushing state', (done)->
+        browser.eval "$('#pathname').val()", (err, pathname)->
+          should.not.exist err
+          pathname.should.equal '/test'
+          pass done
 
       it 'title should have been set', (done)->
         browser.title (err, title)->
