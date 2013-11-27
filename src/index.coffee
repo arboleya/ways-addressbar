@@ -7,15 +7,16 @@ module.exports = class RouterBrowser extends Event
 
   api: null
 
-  constructor:( before_redirect )->
+  constructor:->
     if window.history.pushState?
       @api = new History
     else
-      @api = new Hash before_redirect
+      @api = new Hash
     
-    @history = @api.history
     @api.on 'url:change', (pathname)=>
       @emit 'url:change', pathname
+
+    @history = @api.history
 
   pathname:->
     @api.pathname()

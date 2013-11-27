@@ -1,15 +1,15 @@
 Event = require 'the-event'
 
 module.exports = class History extends Event
-  history: null
+  history: window.history
 
   constructor:->
     
-    if window.location.hash?
+    if window.location.hash?.length
       @replace window.location.hash.substr 1
 
-    # THIS BECAME USELESS SINCE BROWSERS SUPPORTING PUSHSTATE
-    # USES `addEventListener`
+    # THIS BECAME USELESS SINCE BROWSERS THAT DOESN'T SUPPORT
+    # PUSHSTATE USES `attachEvent` (ie8 and ie9)
 
       # if window.addEventListener?
       #   listen = 'addEventListener'
@@ -17,21 +17,21 @@ module.exports = class History extends Event
       # else
       #   listen = 'attachEvent'
       #   event_name = 'onpopstate'
+      #   
+      # window[listen] event_name, =>
 
     window.addEventListener 'popstate', =>
       @emit 'url:change', window.location.pathname
     , false
 
-    @history = window.history
-
   pathname:->
     window.location.pathname
 
   push:( url, title, state )->
-    document.title = title
     window.history.pushState state, title, url
+    document.title = title if title?
     @emit 'url:change', window.location.pathname
 
   replace:( url, title, state )->
-    document.title = title
     window.history.replaceState state, title, url
+    document.title = title if title?
