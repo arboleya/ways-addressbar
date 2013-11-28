@@ -13,19 +13,18 @@ module.exports = (browser, base_url, notify, cover) ->
       if not cover
         return quit browser, failures, notify, done
 
-      console.log '\nSaving test coverage..'
       browser.eval 'window.__coverage__', (err, cover_data)->
         should.not.exist err
         should.exist cover_data
         coverage.save base_url, cover_data, ->
-          quit browser, failures, notify, ->
-            console.log 'Done.\n\n'
-            done()
+          quit browser, failures, notify, done
       .done()
 
     before_each: -> passed = false
     after_each:-> failures++ if not passed
-    pass: (done)-> passed = true && done()
+    pass: (done)->
+      passed = true
+      done()
   }
 
 quit = (browser, failures, notify, done) ->
