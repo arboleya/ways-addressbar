@@ -2,8 +2,8 @@ exports['local'] = ->
   return [
     # phantomjs
     chrome_mountain
-    # firefox_mountain
-    # safari6_mountain
+    firefox_mountain
+    safari6_mountain
   ]
 
 exports['sauce labs'] = ->
@@ -34,7 +34,9 @@ exports['sauce labs'] = ->
     ios_61_iphone
     ios_61_ipad
 
-    # -- android (NOTE: android and sauce connect isn't currently working)
+    # -- android
+    # NOTE: android and sauce connect isn't currently working)
+    # 
     # android_40_phone
     # android_40_tablet
   ]
