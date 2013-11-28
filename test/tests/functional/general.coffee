@@ -1,5 +1,8 @@
 should = require('chai').should()
+asserters = require 'wd/lib/asserters'
+
 Hook = require '../utils/hook'
+
 
 exports.test = ( browser, caps, base_url, notify, cover, timeout )->
 
@@ -15,13 +18,14 @@ exports.test = ( browser, caps, base_url, notify, cover, timeout )->
 
 
     before (done)->
-      wait_for_middleware = 'window.middleware !== null'
+      using = 'css selector'
+      el_sel = '#pathname'
 
       browser.init caps, (err)->
         should.not.exist err
       .get base_url, (err)->
         should.not.exist err
-      .waitForConditionInBrowser wait_for_middleware, timeout, 100, (err)->
+      .waitForElement using, el_sel, asserters.isVisible, timeout, 100, (err)->
         should.not.exist err
       .fin (err)->
         should.not.exist err
