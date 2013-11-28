@@ -9,19 +9,18 @@ cover = opt.coverage
 browsers = do (require './utils/browsers')[env]
 hook = require './utils/hook'
 server = require './utils/server'
-config = require './config.json'
+config = require './config'
 
 # compute timeout notify_sauce flag based on env
 if env is 'local'
-  timeout = 10000
+  timeout = 50000
   notify_sauce = false
 else
   timeout = 15000
   notify_sauce = true
 
 # base url to test
-base_url = 'http://localhost:8080/'
-entry_url = base_url + 'entry'
+base_url = 'http://localhost:8080'
 
 # sauce connect config
 sauce_conf = 
@@ -69,17 +68,18 @@ describe "[#{env}]", ->
 
       # INIT WD
       if env is 'local' or caps.name is 'phantomjs'
-        browser = do wd.remote
+        # browser = do wd.remote
+        browser = wd.promiseChainRemote()
       else
-        browser = wd.remote sauce_conf
+        # browser = wd.remote sauce_conf
+        browser = wd.promiseChainRemote sauce_conf
 
       # SET MOCHA HOOKS
-      pass = hook @, browser, caps, entry_url, base_url, notify_sauce, cover
+      # pass = hook @, browser, caps, base_url, notify_sauce, cover
 
       # list of test files
       files = fsu.find (path.join __dirname, 'functional'), /\.coffee$/m
 
       for file in files
-        
         {test} = require file
-        test browser, pass, timeout
+        test?(browser, caps, base_url, notify_sauce, cover, timeout)

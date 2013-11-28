@@ -1,4 +1,10 @@
+should = require('chai').should()
 request = require 'request'
+config = require '../config'
+
+user = config.SAUCE_USERNAME or process.env.SAUCE_USERNAME
+key = config.SAUCE_ACCESS_KEY or process.env.SAUCE_ACCESS_KEY
+build_id = process.env.TRAVIS_BUILD_NUMBER or (new Date().getTime())
 
 exports.notify = ( job_id, status, done) ->
   opts =
@@ -9,7 +15,6 @@ exports.notify = ( job_id, status, done) ->
       passed: status
       public: true
       build: build_id
-    jar: false # disable cookies: avoids CSRF issues
 
   request opts, (err, res)->
     should.not.exist err

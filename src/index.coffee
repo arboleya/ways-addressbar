@@ -4,14 +4,13 @@ History = require './history'
 Hash = require './hash'
 
 module.exports = class RouterBrowser extends Event
-
   api: null
 
   constructor:->
     if window.history.pushState?
       @api = new History
     else
-      @api = new Hash
+      @api = new Hash 
     
     @api.on 'url:change', (pathname)=>
       @emit 'url:change', pathname

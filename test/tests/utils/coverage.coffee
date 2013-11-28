@@ -11,7 +11,7 @@ exports.download = (base_url, done)->
   fsu.rm_rf output_dir if fs.existsSync output_dir
   fsu.mkdir_p output_dir
 
-  args = ['-o', 'coverage.zip', base_url + 'coverage/download']
+  args = ['-o', 'coverage.zip', base_url + '/coverage/download']
   curl = spawn 'curl', args, cwd: output_dir
 
   curl.on 'exit', (code)->
@@ -19,16 +19,16 @@ exports.download = (base_url, done)->
 
 exports.save = ( base_url, cover_data, done )->
   opts =
-    url: base_url + 'coverage/client'
     method: 'POST'
+    url: base_url + '/coverage/client'
     headers: 'Content-Type': 'application/json'
     body: JSON.stringify cover_data
 
-  request opts, (err)->
+  request opts, (err, a, b)->
     should.not.exist err
     done()
 
 unzip = (output_dir, done)->
   unzip = spawn 'unzip', [ 'coverage.zip' ], cwd: output_dir
   unzip.on 'exit', (code)->
-    do done
+    done()

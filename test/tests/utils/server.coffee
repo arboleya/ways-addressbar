@@ -14,18 +14,14 @@ matcher = (req)->
 
 exports.start = (cover)->
 
-  if cover
-    istanbul.hookLoader __dirname, verbose: true
-
-  app = do express
+  app = express()
 
   if cover
+    istanbul.hookLoader root, verbose: true
     app.use '/coverage', istanbul.createHandler verbose: true, resetOnGet: true
     app.use istanbul.createClientHandler root, matcher: matcher
-    app.use express.static root
-  else
-    app.use express.static root
 
+  app.use express.static root
   app.use (req, res)->
     if ~(req.url.indexOf '.')
       res.statusCode = 404

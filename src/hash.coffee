@@ -14,35 +14,24 @@ module.exports = class Hash extends Event
     hash = window.location.hash
     pathname = window.location.pathname
 
-    if hash.length is 0
+    if hash is ''
       if pathname.length > 1
         window.location.href = '/#'+ pathname
       else
         window.location.href = '#/'
 
-    # THIS BECAME USELESS SINCE BROWSERS THAT DOESN'T SUPPORT
-    # PUSHSTATE USES `attachEvent` (ie8 and ie9)
-
-      # if window.addEventListener?
-      #   listen = 'addEventListener'
-      #   event_name = 'popstate'
-      # else
-      #   listen = 'attachEvent'
-      #   event_name = 'onpopstate'
-      #   
-      # window[listen] event_name, =>
-      
     window.attachEvent 'onhashchange', =>
       @emit 'url:change', @pathname()
     , false
 
   pathname:->
-    window.location.hash.toString().substr(1)
+    window.location.hash
 
   push:( url, title, state )->
     @history.push @history.state = state
-    window.location.href = '#' + url
+    window.location.hash = url
     document.title = title if title?
+    @emit 'url:change', @pathname()
 
   replace:( url, title, state )->
     @history[@history.length-1] = @history.state = state
