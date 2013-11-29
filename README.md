@@ -4,11 +4,12 @@ Browser middleware for Ways, supporting both pushState and #hash urls.
 
 [![Stories in Ready](https://badge.waffle.io/serpentem/ways-browser.png)](http://waffle.io/serpentem/ways-browser)
 
-[![Build Status](https://travis-ci.org/serpentem/ways-browser.png?branch=master)](http://travis-ci.org/serpentem/ways-browser) [![Selenium Test Status](https://saucelabs.com/buildstatus/theoricus)](https://saucelabs.com/u/theoricus) [![Coverage Status](https://coveralls.io/repos/serpentem/ways-browser/badge.png)](https://coveralls.io/r/serpentem/ways-browser)
-
-[![Selenium Test Status](https://saucelabs.com/browser-matrix/theoricus.svg)](https://saucelabs.com/u/theoricus)
+[![Build Status](https://travis-ci.org/serpentem/ways-browser.png?branch=master)](http://travis-ci.org/serpentem/ways-browser) [![Selenium Test Status](https://saucelabs.com/buildstatus/ways-browser)](https://saucelabs.com/u/ways-browser) [![Coverage Status](https://coveralls.io/repos/serpentem/ways-browser/badge.png)](https://coveralls.io/r/serpentem/ways-browser)
 
 [![Dependency Status](https://gemnasium.com/serpentem/ways-browser.png)](https://gemnasium.com/serpentem/ways-browser) [![NPM version](https://badge.fury.io/js/ways-browser.png)](http://badge.fury.io/js/ways-browser)
+
+[![Selenium Test Status](https://saucelabs.com/browser-matrix/ways-browser.svg)](https://saucelabs.com/u/ways-browser)
+
 
 > Attention, is a **WIP**! Do not use it yet.
 
