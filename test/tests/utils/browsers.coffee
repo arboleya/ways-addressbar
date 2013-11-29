@@ -25,7 +25,9 @@ exports['sauce labs'] = ->
     safari6_mountain
 
     # -- opera
-    opera_linux
+    # NOTE: android and sauce connect isn't currently working for localhost)
+    # 
+    # opera_linux
     # opera_win7
 
     # -- ie
@@ -39,7 +41,7 @@ exports['sauce labs'] = ->
     ios_61_ipad
 
     # -- android
-    # NOTE: android and sauce connect isn't currently working)
+    # NOTE: android and sauce connect isn't currently working for localhost)
     # 
     # android_40_phone
     # android_40_tablet
