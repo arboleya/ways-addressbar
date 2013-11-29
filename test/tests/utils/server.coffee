@@ -10,7 +10,7 @@ index = path.join root, 'index.html'
 
 matcher = (req)->
     parsed = url.parse req.url
-    return /__split__\/src\//.test parsed.pathname
+    return /__split__\/lib\//.test parsed.pathname
 
 exports.start = (cover)->
 
