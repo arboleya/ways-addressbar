@@ -73,6 +73,9 @@ describe "[#{env}]", ->
         # browser = wd.remote sauce_conf
         browser = wd.promiseChainRemote sauce_conf
 
+        if process.env.TRAVIS_JOB_NUMBER?
+          caps['tunnel-identifier'] = process.env.TRAVIS_JOB_NUMBER
+
       # SET MOCHA HOOKS
       # pass = hook @, browser, caps, base_url, notify_sauce, cover
 
