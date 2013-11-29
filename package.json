@@ -24,7 +24,7 @@
     "node": ">= 0.10"
   },
   "dependencies": {
-    "the-event": "0.3.x"
+    "happens": "0.3.x"
   },
   "devDependencies": {
     "wd": "0.2.x",

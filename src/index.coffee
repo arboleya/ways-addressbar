@@ -1,4 +1,4 @@
-Event = require 'the-event'
+Event = require 'happens'
 
 History = require './history'
 Hash = require './hash'

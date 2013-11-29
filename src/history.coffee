@@ -1,4 +1,4 @@
-Event = require 'the-event'
+Event = require 'happens'
 
 module.exports = class History extends Event
   history: window.history

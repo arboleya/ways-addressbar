@@ -1,4 +1,4 @@
-Event = require 'the-event'
+Event = require 'happens'
 
 class PseudoHistory extends Array
   state: null
