@@ -76,7 +76,7 @@ test.watch.split:
 
 
 
-test.build.prod:
+test.build.prod: build
 	@echo 'Building app before testing..'
 	@$(POLVO) -rb test/fixtures/general > /dev/null
 
@@ -129,6 +129,14 @@ test.sauce.cover: test.build.split
 	--reporter spec \
 	--timeout 600000 \
 	test/tests/runner.coffee --env='sauce labs' --coverage
+
+test.sauce.cover.coveralls: test.sauce.cover
+	@sed -i.bak \
+		"s/^.*__split__\/lib/SF:lib/g" \
+		coverage/lcov.info
+
+	cat coverage/lcov.info | $(COVERALLS)
+
 
 test.sauce.cover.preview: test.sauce.cover
 	@cd coverage/lcov-report && python -m SimpleHTTPServer 8080
