@@ -2,11 +2,9 @@ language: node_js
 
 env:
   global:
-    secure: IXX/gyN5uBZfEIJmD4/XNhyUIYZvzsD+pmEkphwHZqNIgb+ONNWzR0aVPy/m2BRFVquCyTETvaPEbx7bTvUpD89ufKfhuAgVL3Ofr5Y9Jc+zaouSBgsaN/U+gQYkKVwrCRTSjd1Pxh8e5GtK1slaU4YpzfWVPLU9YyImRNmqeVU=
-    secure: XMEhn5V9fn84U0aAgr11207fjrvzc97Rpo/33jB4A5MBvqozZUpRXEmIKhz3xxjgWmkgkVKsnMYWPdBIvHYForl7UyrcLqE8+nyW6tJCuykJ2lQIOpq4JFX4l6TPZ5kN9/3vFLVc8i91XTWIyHIf93SEyna1TZOaxrHfv4lUCCc=
+    secure: S49SVxot361YLWTg4N6xRywhnezu4wkDJIg/DFt34yomBu64DSPQU+zXjpazWQCF6rj3s5Y1lUjjjgX7Dlne8B7RW6JQ3eXdDA1cyEMJTr3rxCMojX3LyERHwah9LpwKHXKJ9fVw26CMcd5lJn91BskU/f91mKJdNHN+0AniChc=
+    secure: QXfQjiQXqSt8bIIrz6jW2rTJhwGxrT5EvM5tdrDw7kvrO4PlFzBHlTj30F5HPSH9AFVFD/rsQ1OIyQzrDVMs8dFEGmAupUCLWsLk/4fUAZ3lz+3mr3aiJvGH+Xwsw4pYaH7DiVRoyqr+7MNmga7x0INPSPbFzevunhRA49Z0VB8=
 
-before_script:
-  - curl https://gist.github.com/everzet/5698159/raw/sauce_connect_setup.sh | bash
+before_script: curl https://gist.github.com/everzet/5698159/raw/sauce_connect_setup.sh | bash
 
-script:
-  - make test.sauce.cover.coveralls
+script: make test.sauce.cover.coveralls
