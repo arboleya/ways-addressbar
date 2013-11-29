@@ -9,4 +9,4 @@ before_script:
   - curl https://gist.github.com/everzet/5698159/raw/sauce_connect_setup.sh | bash
 
 script:
-  - make test.sauce.cover
+  - make test.sauce.cover.coveralls
