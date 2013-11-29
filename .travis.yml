@@ -3,11 +3,11 @@ language:
 
 env:
   global:
-  - secure: awjabxv2TykGIZw94OS2kEArstjNuptTkEs66u0Grebs4Y1VoF5SruuePmLB8VD+9lPH87Sx1wCBn/Wi7LHQr1hEXoJtu3TTQ0EDKVwcNoOwreLShjD36MWz/tJgDGPLVyYkIGwmO43vZtbE0wggVbbX6mSzZ5ZbqoyOVHOknJo=
-  - secure: D+jEOx6sW5FcKfmvExYko4CwLBuC0f2N1rAHxvzAgThfE/HksSKc/4GKyAWe+HFAcdiaERu2fl/JhSTN3pFGJh4o2yiykUCX5H1b05k8uFzcbbnXzi/VlvYQHnRzdF8bQZxSysECej9KWWsolNK7nDPmvItvEFAVRTwzrGKB8UE=
+    secure: awjabxv2TykGIZw94OS2kEArstjNuptTkEs66u0Grebs4Y1VoF5SruuePmLB8VD+9lPH87Sx1wCBn/Wi7LHQr1hEXoJtu3TTQ0EDKVwcNoOwreLShjD36MWz/tJgDGPLVyYkIGwmO43vZtbE0wggVbbX6mSzZ5ZbqoyOVHOknJo=
+    secure: D+jEOx6sW5FcKfmvExYko4CwLBuC0f2N1rAHxvzAgThfE/HksSKc/4GKyAWe+HFAcdiaERu2fl/JhSTN3pFGJh4o2yiykUCX5H1b05k8uFzcbbnXzi/VlvYQHnRzdF8bQZxSysECej9KWWsolNK7nDPmvItvEFAVRTwzrGKB8UE=
 
 before_script:
-  - curl https://gist.github.com/santiycr/5139565/raw/sauce_connect_setup.sh | bash
+  - curl https://gist.github.com/everzet/5698159/raw/sauce_connect_setup.sh | bash
 
 script:
   - make test.sauce.cover.coveralls
