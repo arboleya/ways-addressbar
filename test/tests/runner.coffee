@@ -9,7 +9,6 @@ cover = opt.coverage
 browsers = do (require './utils/browsers')[env]
 hook = require './utils/hook'
 server = require './utils/server'
-config = require './config'
 
 # compute timeout notify_sauce flag based on env
 if env is 'local'
@@ -26,8 +25,8 @@ base_url = 'http://localhost:8080'
 sauce_conf = 
   hostname: 'localhost'
   port: '4445'
-  user: config.SAUCE_USERNAME or process.env.SAUCE_USERNAME
-  pwd: config.SAUCE_ACCESS_KEY or process.env.SAUCE_ACCESS_KEY
+  user: process.env.SAUCE_USERNAME
+  pwd: process.env.SAUCE_ACCESS_KEY
 
 
 # starts server

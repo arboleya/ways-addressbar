@@ -1,9 +1,8 @@
 should = require('chai').should()
 request = require 'request'
-config = require '../config'
 
-user = config.SAUCE_USERNAME or process.env.SAUCE_USERNAME
-key = config.SAUCE_ACCESS_KEY or process.env.SAUCE_ACCESS_KEY
+user = process.env.SAUCE_USERNAME
+key = process.env.SAUCE_ACCESS_KEY
 build_id = process.env.TRAVIS_BUILD_NUMBER or (new Date().getTime())
 
 exports.notify = ( job_id, status, done) ->
