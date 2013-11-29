@@ -1,10 +1,12 @@
 language: node_js
 
-node_js: 0.1
+env:
+  global:
+    secure: IXX/gyN5uBZfEIJmD4/XNhyUIYZvzsD+pmEkphwHZqNIgb+ONNWzR0aVPy/m2BRFVquCyTETvaPEbx7bTvUpD89ufKfhuAgVL3Ofr5Y9Jc+zaouSBgsaN/U+gQYkKVwrCRTSjd1Pxh8e5GtK1slaU4YpzfWVPLU9YyImRNmqeVU=
+    secure: XMEhn5V9fn84U0aAgr11207fjrvzc97Rpo/33jB4A5MBvqozZUpRXEmIKhz3xxjgWmkgkVKsnMYWPdBIvHYForl7UyrcLqE8+nyW6tJCuykJ2lQIOpq4JFX4l6TPZ5kN9/3vFLVc8i91XTWIyHIf93SEyna1TZOaxrHfv4lUCCc=
 
-addons:
-  sauce_connect:
-    username: ways-browser
-    access_key: MJcwQRI0e/Q7RsJcFFRo6gh4vzEFOsKyXq+niqHJh+O9WM8ax60NN9yqDOgkZ+daG/nw1Mdh7Jh3ZiupBie1mCZ0CuYraGim1z7qWhMkh5Q7BJWT0wGdwgfNxQBqdbRM+vALNEwHJG7Th/OkG+DBSI8gGdXjtfyXRUO7H56CI9U=
+before_script:
+  - curl https://gist.github.com/everzet/5698159/raw/sauce_connect_setup.sh | bash
 
-script: make test.sauce.cover.coveralls
+script:
+  - make test.sauce.cover.coveralls
