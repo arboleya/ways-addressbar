@@ -3,7 +3,7 @@ Event = require 'the-event'
 History = require './history'
 Hash = require './hash'
 
-module.exports = class RouterBrowser extends Event
+module.exports = class Index extends Event
   api: null
 
   constructor:->

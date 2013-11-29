@@ -46,7 +46,7 @@ exports['sauce labs'] = ->
 # ----------------------------------------------------------------------------
 phantomjs =
   browserName: 'phantomjs'
-  tags: ['the-router-browser', 'phantomjs']
+  tags: ['ways-browser', 'phantomjs']
 
 
 # chrome
@@ -54,37 +54,37 @@ phantomjs =
 chrome_winxp = 
   browserName: 'chrome'
   platform: 'Windows XP'
-  tags: ['the-router-browser', 'chrome', 'winxp']
+  tags: ['ways-browser', 'chrome', 'winxp']
   'record-video': true
 
 chrome_win7 = 
   browserName: 'chrome'
   platform: 'Windows 7'
-  tags: ['the-router-browser', 'chrome', 'win7']
+  tags: ['ways-browser', 'chrome', 'win7']
   'record-video': true
 
 chrome_win8 = 
   browserName: 'chrome'
   platform: 'Windows 8'
-  tags: ['the-router-browser', 'chrome', 'win8']
+  tags: ['ways-browser', 'chrome', 'win8']
   'record-video': true
 
 chrome_linux = 
   browserName: 'chrome'
   platform: 'Linux'
-  tags: ['the-router-browser', 'chrome', 'linux']
+  tags: ['ways-browser', 'chrome', 'linux']
   'record-video': true
 
 chrome_snow = 
   browserName: 'chrome'
   platform: 'OS X 10.6'
-  tags: ['the-router-browser', 'chrome', 'snow']
+  tags: ['ways-browser', 'chrome', 'snow']
   'record-video': true
 
 chrome_mountain = 
   browserName: 'chrome'
   platform: 'OS X 10.8'
-  tags: ['the-router-browser', 'chrome', 'mountain']
+  tags: ['ways-browser', 'chrome', 'mountain']
   'record-video': true
 
 
@@ -95,21 +95,21 @@ safari5_win7 =
   version: '5'
   browserName: 'safari'
   platform: 'Windows 7'
-  tags: ['the-router-browser', 'safari5', 'win7']
+  tags: ['ways-browser', 'safari5', 'win7']
   'record-video': true
 
 safari5_snow = 
   version: '5'
   browserName: 'safari'
   platform: 'OS X 10.6'
-  tags: ['the-router-browser', 'safari5', 'snow']
+  tags: ['ways-browser', 'safari5', 'snow']
   'record-video': true
 
 safari6_mountain = 
   version: '6'
   browserName: 'safari'
   platform: 'OS X 10.8'
-  tags: ['the-router-browser', 'safari6', 'mountain']
+  tags: ['ways-browser', 'safari6', 'mountain']
   'record-video': true
 
 
@@ -120,41 +120,41 @@ firefox_winxp =
   browserName: 'firefox'
   version: '22'
   platform: 'Windows XP'
-  tags: ['the-router-browser', 'firefox', 'winxp']
+  tags: ['ways-browser', 'firefox', 'winxp']
   'record-video': true
 
 firefox_win7 = 
   browserName: 'firefox'
   version: '22'
   platform: 'Windows 7'
-  tags: ['the-router-browser', 'firefox', 'win7']
+  tags: ['ways-browser', 'firefox', 'win7']
   'record-video': true
 
 firefox_win8 = 
   browserName: 'firefox'
   version: '22'
   platform: 'Windows 8'
-  tags: ['the-router-browser', 'firefox', 'win8']
+  tags: ['ways-browser', 'firefox', 'win8']
   'record-video': true
 
 firefox_linux = 
   browserName: 'firefox'
   platform: 'Linux'
-  tags: ['the-router-browser', 'firefox', 'linux']
+  tags: ['ways-browser', 'firefox', 'linux']
   'record-video': true
 
 firefox_snow = 
   browserName: 'firefox'
   version: '21'
   platform: 'OS X 10.6'
-  tags: ['the-router-browser', 'firefox', 'snow']
+  tags: ['ways-browser', 'firefox', 'snow']
   'record-video': true
 
 firefox_mountain = 
   browserName: 'firefox'
   version: '22'
   platform: 'OS X 10.8'
-  tags: ['the-router-browser', 'firefox', 'snow']
+  tags: ['ways-browser', 'firefox', 'snow']
   'record-video': true
 
 
@@ -167,21 +167,21 @@ ie6_winxp =
   browserName: 'internet explorer '
   version: '6'
   platform: 'Windows XP'
-  tags: ['the-router-browser', 'ie6', 'winxp']
+  tags: ['ways-browser', 'ie6', 'winxp']
   'record-video': true
 
 ie7_winxp = 
   browserName: 'internet explorer'
   version: '7'
   platform: 'Windows XP'
-  tags: ['the-router-browser', 'ie7', 'winxp']
+  tags: ['ways-browser', 'ie7', 'winxp']
   'record-video': true
 
 ie8_winxp = 
   browserName: 'internet explorer'
   version: '8'
   platform: 'Windows XP'
-  tags: ['the-router-browser', 'ie8', 'winxp']
+  tags: ['ways-browser', 'ie8', 'winxp']
   'record-video': true
 
 
@@ -191,14 +191,14 @@ ie8_win7 =
   browserName: 'internet explorer'
   version: '8'
   platform: 'Windows 7'
-  tags: ['the-router-browser', 'ie8', 'win7']
+  tags: ['ways-browser', 'ie8', 'win7']
   'record-video': true
 
 ie9_win7 = 
   browserName: 'internet explorer'
   version: '9'
   platform: 'Windows 7'
-  tags: ['the-router-browser', 'ie9', 'win7']
+  tags: ['ways-browser', 'ie9', 'win7']
   'record-video': true
 
 
@@ -208,7 +208,7 @@ ie10_win8 =
   browserName: 'internet explorer'
   version: '10'
   platform: 'Windows 8'
-  tags: ['the-router-browser', 'ie10', 'win8']
+  tags: ['ways-browser', 'ie10', 'win8']
   'record-video': true
 
 # win 8.1
@@ -217,7 +217,7 @@ ie11_win81 =
   browserName: 'internet explorer'
   version: '11'
   platform: 'Windows 8.1'
-  tags: ['the-router-browser', 'ie11', 'win8.1']
+  tags: ['ways-browser', 'ie11', 'win8.1']
   'record-video': true
 
 
@@ -227,13 +227,13 @@ ie11_win81 =
 ios_61_iphone = 
   browserName: 'iphone'
   platform: 'OS X 10.8'
-  tags: ['the-router-browser', 'ios', '6.1', 'iphone']
+  tags: ['ways-browser', 'ios', '6.1', 'iphone']
   'record-video': true
 
 ios_61_ipad = 
   browserName: 'ipad'
   platform: 'OS X 10.8'
-  tags: ['the-router-browser', 'ios', '6.1', 'ipad']
+  tags: ['ways-browser', 'ios', '6.1', 'ipad']
   'record-video': true
 
 
@@ -244,7 +244,7 @@ android_40_phone =
   browserName: 'android'
   version: '4.0'
   platform: 'Linux'
-  tags: ['the-router-browser', 'android', '4.0', 'phone']
+  tags: ['ways-browser', 'android', '4.0', 'phone']
   'record-video': true
 
 android_40_tablet = 
@@ -252,5 +252,5 @@ android_40_tablet =
   version: '4.0'
   'device-type': 'tablet'
   platform: 'Linux'
-  tags: ['the-router-browser', 'android', '4.0', 'tablet']
+  tags: ['ways-browser', 'android', '4.0', 'tablet']
   'record-video': true

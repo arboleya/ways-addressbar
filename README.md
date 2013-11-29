@@ -1,20 +1,21 @@
-# Browser Middleware for The Router
+# Browser Middleware for Ways
 
-Simple http-middleware for [The Router](https://github.com/theoricus/the-router)
-of [Theoricus](https://github.com/theoricus/theoricus) framework.
+Browser middleware for Ways, supporting both pushState and #hash urls.
 
-[![Stories in Ready](https://badge.waffle.io/theoricus/the-router-browser.png)](http://waffle.io/theoricus/the-router-browser)
+[![Stories in Ready](https://badge.waffle.io/serpentem/ways-browser.png)](http://waffle.io/serpentem/ways-browser)
 
-[![Build Status](https://travis-ci.org/theoricus/the-router-browser.png?branch=master)](http://travis-ci.org/theoricus/the-router-browser) [![Coverage Status](https://coveralls.io/repos/theoricus/the-router-browser/badge.png)](https://coveralls.io/r/theoricus/the-router-browser)
+[![Build Status](https://travis-ci.org/serpentem/ways-browser.png?branch=master)](http://travis-ci.org/serpentem/ways-browser) [![Selenium Test Status](https://saucelabs.com/buildstatus/theoricus)](https://saucelabs.com/u/theoricus) [![Coverage Status](https://coveralls.io/repos/serpentem/ways-browser/badge.png)](https://coveralls.io/r/serpentem/ways-browser)
 
-[![Dependency Status](https://gemnasium.com/theoricus/the-router-browser.png)](https://gemnasium.com/theoricus/the-router-browser) [![NPM version](https://badge.fury.io/js/polvo.png)](http://badge.fury.io/js/polvo)
+[![Selenium Test Status](https://saucelabs.com/browser-matrix/theoricus.svg)](https://saucelabs.com/u/theoricus)
+
+[![Dependency Status](https://gemnasium.com/serpentem/ways-browser.png)](https://gemnasium.com/serpentem/ways-browser) [![NPM version](https://badge.fury.io/js/ways-browser.png)](http://badge.fury.io/js/ways-browser)
 
 > Attention, is a **WIP**! Do not use it yet.
 
 ## Usage
 
 For usage, checkout
-[The Router](https://github.com/theoricus/the-router#middlewares) docs.
+[Ways Middlewares](https://github.com/serpentem/ways/#middlewares) docs.
 
 # License
 
