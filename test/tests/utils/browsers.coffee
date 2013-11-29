@@ -24,6 +24,10 @@ exports['sauce labs'] = ->
     # safari5_snow
     safari6_mountain
 
+    # -- opera
+    opera_linux
+    # opera_win7
+
     # -- ie
     ie8_win7
     ie9_win7
@@ -110,6 +114,25 @@ safari6_mountain =
   browserName: 'safari'
   platform: 'OS X 10.8'
   tags: ['ways-browser', 'safari6', 'mountain']
+  'record-video': true
+
+
+
+# opera
+# ----------------------------------------------------------------------------
+
+opera_linux = 
+  version: '12'
+  browserName: 'opera'
+  platform: 'Linux'
+  tags: ['ways-browser', 'opera', 'linux']
+  'record-video': true
+
+opera_win7 = 
+  version: '12'
+  browserName: 'opera'
+  platform: 'Windows 7'
+  tags: ['ways-browser', 'opera', 'win7']
   'record-video': true
 
 
