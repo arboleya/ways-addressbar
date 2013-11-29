@@ -1,4 +1,4 @@
-Middleware = require '../../../../src/index'
+Middleware = require '../../../..'
 
 # Approach used to AVOID subtle-close of the window, in order to make it
 # possible to collect coverage analysis before closing the browser
