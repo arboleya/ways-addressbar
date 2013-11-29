@@ -13,11 +13,6 @@ CHROME_DRIVER=test/services/chromedriver
 MOCHA=node_modules/mocha/bin/mocha
 COVERALLS=node_modules/coveralls/bin/coveralls.js
 
-# uncomment these lines and put your user/pass for sauce labs
-# for testing locally though sauce connect
-# SAUCE_USERNAME=yourusername
-# SAUCE_ACCESS_KEY=youraccesskey
-
 
 
 install_test_suite:
