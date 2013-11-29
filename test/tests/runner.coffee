@@ -53,7 +53,7 @@ describe "[#{env}]", ->
   for caps in browsers
 
     # computes session name based on the last two tags
-    caps.name = (caps.tags.slice 1 ).join '_'
+    caps.name = caps.tags.join '-'
 
     # when testing local
     if env is 'local'
