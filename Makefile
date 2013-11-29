@@ -113,13 +113,6 @@ test.cover: test.build.split
 test.cover.preview: test.cover
 	@cd coverage/lcov-report && python -m SimpleHTTPServer 8080
 
-test.cover.coveralls: test.cover
-	@sed -i.bak \
-		"s/^.*__split__\/src/SF:src/g" \
-		coverage/lcov.info
-
-	cat coverage/lcov.info  #| $(COVERALLS)
-
 
 
 
