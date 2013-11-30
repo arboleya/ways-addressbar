@@ -1,6 +1,6 @@
 {
   "name": "ways-browser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Anderson Arboleya <anderson@arboleya.me>",
   "description": "Browser middleware for Ways, supporting both pushState and #hash urls.",
   "keywords": [
