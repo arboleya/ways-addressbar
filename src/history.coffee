@@ -4,8 +4,8 @@ module.exports = class History extends Event
   history: window.history
 
   constructor:->
-    popped = false
-    initial = @pathname()
+    # popped = false
+    # initial = @pathname()
 
     if window.location.hash?.length
       @replace window.location.hash.substr 1
@@ -13,8 +13,8 @@ module.exports = class History extends Event
     window.addEventListener 'popstate', =>
 
       # skips first pop if present (like in chrome)
-      if initial is @pathname() and not popped
-        return popped = true
+      # if initial is @pathname() and not popped
+      #   return popped = true
 
       @emit 'url:change', window.location.pathname
     , false
