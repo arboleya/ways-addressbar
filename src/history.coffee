@@ -4,8 +4,8 @@ module.exports = class History extends Event
   history: window.history
 
   constructor:->
-    popped = false
-    initial = @pathname()
+    # popped = false
+    # initial = @pathname()
 
     if window.location.hash?.length
       @replace window.location.hash.substr 1
