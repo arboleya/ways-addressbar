@@ -12,9 +12,9 @@ module.exports = class History extends Event
 
     window.addEventListener 'popstate', =>
 
-      # skips first pop if present (like in chrome)
-      # if initial is @pathname() and not popped
-      #   return popped = true
+      skips first pop if present (like in chrome)
+      if initial is @pathname() and not popped
+        return popped = true
 
       @emit 'url:change', window.location.pathname
     , false
