@@ -1,0 +1,30 @@
+{
+  "name": "ways-addressbar",
+  "version": "0.2.0",
+  "homepage": "https://github.com/arboleya/ways-addressbar",
+  "authors": [
+    "Anderson Arboleya <anderson@arboleya.me>"
+  ],
+  "description": "AddressBar plugin for Ways, supporting pushState and #hash urls",
+  "main": "lib/index.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "flow",
+    "router",
+    "browser",
+    "addressbar",
+    "navigation"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

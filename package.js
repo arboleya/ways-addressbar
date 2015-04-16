@@ -1,8 +1,8 @@
 Package.describe({
-  name: 'arboleya:ways-browser',
-  version: '1.0.0',
-  summary: 'Browser middleware for Ways, supporting both pushState and #hash urls',
-  git: 'https://github.com/serpentem/ways-browser',
+  name: 'arboleya:ways-addressbar',
+  version: '0.2.0',
+  summary: 'AddressBar plugin for Ways, supporting pushState and #hash urls',
+  git: 'https://github.com/arboleya/ways-addressbar',
   documentation: 'README.md'
 });
 
