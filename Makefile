@@ -1,16 +1,29 @@
+################################################################################
+# executables
+################################################################################
+
+NPM_CHECK=node_modules/.bin/npm-check
 MVERSION=node_modules/mversion/bin/version
-VERSION=`$(MVERSION) | sed -E 's/\* package.json: //g'`
-
 POLVO=node_modules/polvo/bin/polvo
-
 SELENIUM=test/services/selenium.jar
 SAUCE_CONNECT=test/services/Sauce-Connect.jar
 CHROME_DRIVER=test/services/chromedriver
-
 MOCHA=node_modules/mocha/bin/mocha
 COVERALLS=node_modules/coveralls/bin/coveralls.js
+CODECLIMATE=node_modules/.bin/codeclimate
 
+################################################################################
+# variables
+################################################################################
 
+VERSION=`egrep -o '[0-9\.]{3,}' package.json -m 1`
+
+################################################################################
+# setup everything for development
+################################################################################
+
+setup: install_test_suite
+	@npm install
 
 install_test_suite:
 	@mkdir -p test/services
@@ -46,40 +59,9 @@ install_test_suite:
 	@echo 'Done.'
 	@echo 
 
-setup: install_test_suite
-	@npm install
-
-
-
-
-test.fixture.watch:
-	@$(POLVO) -wsx --base test/fixtures/general
-
-test.fixture.watch.split:
-	@$(POLVO) -wsxb test/fixtures/general
-
-
-
-
-test.fixture.build.prod:
-	@echo 'Building test/fixtures before testing..'
-	@$(POLVO) -rb test/fixtures/general > /dev/null
-
-test.fixture.build.split:
-	@echo 'Compiling test/fixture before testing..'
-	@$(POLVO) -cxb test/fixtures/general > /dev/null
-
-
-
-# SELENIUM & SAUCE CONNECT
-test.selenium.run:
-	@java -jar $(SELENIUM) -Dwebdriver.chrome.driver=$(CHROME_DRIVER)
-
-test.sauce.connect.run:
-	@java -jar $(SAUCE_CONNECT) $(SAUCE_USERNAME) $(SAUCE_ACCESS_KEY)
-
-
-
+################################################################################
+# run tests locally
+################################################################################
 
 test: test.fixture.build.prod
 	@$(MOCHA) --ui bdd --reporter spec --timeout 600000 \
@@ -92,8 +74,41 @@ test.cover: test.fixture.build.split
 test.cover.preview: test.cover
 	@cd coverage/lcov-report && python -m SimpleHTTPServer 8080
 
+################################################################################
+# debugging fixture manually
+################################################################################
 
+test.fixture.watch:
+	@$(POLVO) -wsx --base test/fixtures/general
 
+test.fixture.watch.split:
+	@$(POLVO) -wsxb test/fixtures/general
+
+################################################################################
+# builds fixture
+################################################################################
+
+test.fixture.build.prod:
+	@echo 'Building test/fixtures before testing..'
+	@$(POLVO) -rb test/fixtures/general > /dev/null
+
+test.fixture.build.split:
+	@echo 'Compiling test/fixture before testing..'
+	@$(POLVO) -cxb test/fixtures/general > /dev/null
+
+################################################################################
+# starts selenium or sauce connect
+################################################################################
+
+test.selenium.run:
+	@java -jar $(SELENIUM) -Dwebdriver.chrome.driver=$(CHROME_DRIVER)
+
+test.sauce.connect.run:
+	@java -jar $(SAUCE_CONNECT) $(SAUCE_USERNAME) $(SAUCE_ACCESS_KEY)
+
+################################################################################
+# run tests in sauce labs
+################################################################################
 
 test.sauce: test.fixture.build.prod
 	@$(MOCHA) -ui bdd -reporter spec -timeout 600000 \
@@ -108,13 +123,15 @@ test.sauce.cover.coveralls: test.sauce.cover
 		"s/^.*__split__\/lib/SF:lib/g" \
 		coverage/lcov.info
 
-	cat coverage/lcov.info | $(COVERALLS)
-
+	@$(CODECLIMATE) < coverage/lcov.info
+	@cat coverage/lcov.info | $(COVERALLS)
 
 test.sauce.cover.preview: test.sauce.cover
 	@cd coverage/lcov-report && python -m SimpleHTTPServer 8080
 
-
+################################################################################
+# manages version bumps
+################################################################################
 
 bump.minor:
 	@$(MVERSION) minor
@@ -125,7 +142,19 @@ bump.major:
 bump.patch:
 	@$(MVERSION) patch
 
+################################################################################
+# checking / updating dependencies
+################################################################################
 
+deps.check:
+	@$(NPM_CHECK)
+
+deps.upgrade:
+	@$(NPM_CHECK) -u
+
+################################################################################
+# publish / re-publish
+################################################################################
 
 publish:
 	git tag $(VERSION)
