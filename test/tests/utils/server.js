@@ -43,7 +43,6 @@ exports.start = function(cover) {
     }
   });
 
-  app.use(app.router);
   app.listen(8080);
 
   console.log('Fixture running on http://localhost:8080');
