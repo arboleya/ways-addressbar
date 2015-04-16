@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/serpentem/ways-browser"
+    "url": "http://github.com/arboleya/ways-addressbar"
   },
   "engines": {
     "node": ">= 0.10"
