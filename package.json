@@ -14,9 +14,6 @@
   "scripts": {
     "test": "make test"
   },
-  "directories": {
-    "src": "./src"
-  },
   "repository": {
     "type": "git",
     "url": "http://github.com/serpentem/ways-browser"
