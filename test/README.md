@@ -25,14 +25,14 @@ make test
 To get coverage, instead of `make test` simply run:
 
 ````
-make test.cover
+make test.coverage
 ````
 
-For previwing `LCOV-HTML` report right away, run with `preview`:
+For previewing `LCOV-HTML` report right away, run with `preview`:
 
 
 ````
-make test.cover.preview
+make test.coverage.preview
 ````
 
 Then go to [http://localhost:8080](http://localhost:8080).
