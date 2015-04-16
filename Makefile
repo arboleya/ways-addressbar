@@ -75,6 +75,24 @@ test.coverage.preview: test.coverage
 	@cd coverage/lcov-report && python -m SimpleHTTPServer 8080
 
 ################################################################################
+# meteor tests
+################################################################################
+
+# run tests and show output in browser
+test.meteor:
+	meteor test-packages ./
+
+# run tests and show output in terminal
+test.meteor.headless:
+	@$(SPACEJAM) test-packages ./
+
+################################################################################
+# more tests
+################################################################################
+
+test.all: test test.meteor.headless
+
+################################################################################
 # debugging fixture manually
 ################################################################################
 
@@ -157,15 +175,19 @@ deps.upgrade:
 ################################################################################
 
 publish:
-	git tag $(VERSION)
-	git push origin $(VERSION)
-	git push origin master
+	git tag -a $(VERSION) -m "Releasing $(VERSION)"
+	git push origin master --tags
 	npm publish
+	meteor publish
 
 re-publish:
-	git tag -d $(VERSION)
-	git tag $(VERSION)
-	git push origin :$(VERSION)
-	git push origin $(VERSION)
-	git push origin master -f
+	git tag -a $(VERSION) -m "Releasing $(VERSION)" -f
+	git push origin master -f --tags
 	npm publish -f
+	meteor publish --update
+
+################################################################################
+# OTHERS
+################################################################################
+
+.PHONY: test
