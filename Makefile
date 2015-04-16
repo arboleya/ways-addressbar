@@ -1,12 +1,9 @@
-CS=node_modules/coffee-script/bin/coffee
-
 MVERSION=node_modules/mversion/bin/version
 VERSION=`$(MVERSION) | sed -E 's/\* package.json: //g'`
 
-# POLVO=node_modules/polvo/bin/polvo
-POLVO=polvo
+POLVO=node_modules/polvo/bin/polvo
 
-SELENIUM=test/services/selenium-server-standalone-2.37.0.jar
+SELENIUM=test/services/selenium.jar
 SAUCE_CONNECT=test/services/Sauce-Connect.jar
 CHROME_DRIVER=test/services/chromedriver
 
@@ -20,8 +17,8 @@ install_test_suite:
 
 	@echo '-----'
 	@echo 'Downloading Selenium..'
-	@curl -o test/services/selenium-server-standalone-2.37.0.jar \
-		https://selenium.googlecode.com/files/selenium-server-standalone-2.37.0.jar
+	@curl -o test/services/selenium.jar \
+		http://selenium-release.storage.googleapis.com/2.45/selenium-server-standalone-2.45.0.jar
 	@echo 'Done.'
 
 	@echo '-----'
@@ -54,29 +51,22 @@ setup: install_test_suite
 
 
 
-build:
-	@$(CS) -bco lib src
 
-watch:
-	@$(CS) -wbco lib src
+test.fixture.watch:
+	@$(POLVO) -wsx --base test/fixtures/general
 
-
-
-test.watch:
-	@$(POLVO) -ws --base test/fixtures/general
-
-test.watch.split:
+test.fixture.watch.split:
 	@$(POLVO) -wsxb test/fixtures/general
 
 
 
 
-test.build.prod: build
-	@echo 'Building app before testing..'
+test.fixture.build.prod:
+	@echo 'Building test/fixtures before testing..'
 	@$(POLVO) -rb test/fixtures/general > /dev/null
 
-test.build.split:
-	@echo 'Compiling app before testing..'
+test.fixture.build.split:
+	@echo 'Compiling test/fixture before testing..'
 	@$(POLVO) -cxb test/fixtures/general > /dev/null
 
 
@@ -91,19 +81,19 @@ test.sauce.connect.run:
 
 
 
-test: test.build.prod
+test: test.fixture.build.prod
 	@$(MOCHA) --compilers coffee:coffee-script \
-	--ui bdd \
-	--reporter spec \
-	--timeout 600000 \
-	test/tests/runner.coffee --env='local'
+		--ui bdd \
+		--reporter spec \
+		--timeout 600000 \
+		test/tests/runner.coffee --env='local'
 
-test.cover: test.build.split
+test.cover: test.fixture.build.split
 	@$(MOCHA) --compilers coffee:coffee-script \
-	--ui bdd \
-	--reporter spec \
-	--timeout 600000 \
-	test/tests/runner.coffee --env='local' --coverage
+		--ui bdd \
+		--reporter spec \
+		--timeout 600000 \
+		test/tests/runner.coffee --env='local' --coverage
 
 test.cover.preview: test.cover
 	@cd coverage/lcov-report && python -m SimpleHTTPServer 8080
@@ -111,19 +101,19 @@ test.cover.preview: test.cover
 
 
 
-test.sauce: test.build.prod
+test.sauce: test.fixture.build.prod
 	@$(MOCHA) --compilers coffee:coffee-script \
 	--ui bdd \
 	--reporter spec \
 	--timeout 600000 \
 	test/tests/runner.coffee --env='sauce labs'
 
-test.sauce.cover: test.build.split
+test.sauce.cover: test.fixture.build.split
 	@$(MOCHA) --compilers coffee:coffee-script \
-	--ui bdd \
-	--reporter spec \
-	--timeout 600000 \
-	test/tests/runner.coffee --env='sauce labs' --coverage
+		--ui bdd \
+		--reporter spec \
+		--timeout 600000 \
+		test/tests/runner.coffee --env='sauce labs' --coverage
 
 test.sauce.cover.coveralls: test.sauce.cover
 	@sed -i.bak \
