@@ -67,11 +67,11 @@ test: test.fixture.build.prod
 	@$(MOCHA) --ui bdd --reporter spec --timeout 600000 \
 						test/tests/runner.js --env='local'
 
-test.cover: test.fixture.build.split
+test.coverage: test.fixture.build.split
 	@$(MOCHA) --ui bdd --reporter spec --timeout 600000 \
 						test/tests/runner.js --env='local' --coverage
 
-test.cover.preview: test.cover
+test.coverage.preview: test.coverage
 	@cd coverage/lcov-report && python -m SimpleHTTPServer 8080
 
 ################################################################################
@@ -114,11 +114,11 @@ test.sauce: test.fixture.build.prod
 	@$(MOCHA) -ui bdd -reporter spec -timeout 600000 \
 					test/tests/runner.js --env='sauce labs'
 
-test.sauce.cover: test.fixture.build.split
+test.sauce.coverage: test.fixture.build.split
 	@$(MOCHA) --ui bdd --reporter spec --timeout 600000 \
 						test/tests/runner.js --env='sauce labs' --coverage
 
-test.sauce.cover.coveralls: test.sauce.cover
+test.sauce.coverage.coverallsage: test.sauce.coverage
 	@sed -i.bak \
 		"s/^.*__split__\/lib/SF:lib/g" \
 		coverage/lcov.info
@@ -126,7 +126,7 @@ test.sauce.cover.coveralls: test.sauce.cover
 	@$(CODECLIMATE) < coverage/lcov.info
 	@cat coverage/lcov.info | $(COVERALLS)
 
-test.sauce.cover.preview: test.sauce.cover
+test.sauce.coverage.preview: test.sauce.coverage
 	@cd coverage/lcov-report && python -m SimpleHTTPServer 8080
 
 ################################################################################
