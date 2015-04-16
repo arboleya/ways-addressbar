@@ -53,7 +53,7 @@ describe("[" + env + "]", function() {
     
     var caps = browsers[i];
 
-    caps.name = caps.tags.join('-');
+    caps.name = caps.tags[0] + ' / ' + caps.tags.slice(1).join(' - ');
 
     if (env === 'local') {
       caps.platform = null;
