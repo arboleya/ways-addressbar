@@ -9,11 +9,12 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  // api.use('arboleya:happens', 'client');
+  api.use('arboleya:happens', 'client');
   api.versionsFrom('1.0');
   api.addFiles('lib/hash.js', 'client');
   api.addFiles('lib/history.js', 'client');
   api.addFiles('lib/index.js', 'client');
+  api.addFiles('meteor.js', 'client');
   api.export('WaysAddressBar');
   
 });
