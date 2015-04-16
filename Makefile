@@ -137,7 +137,7 @@ test.sauce.coverage: test.fixture.build.split
 	@$(MOCHA) --ui bdd --reporter spec --timeout 600000 \
 						test/tests/runner.js --env='sauce labs' --coverage
 
-test.sauce.coverage.coverallsage: test.sauce.coverage
+test.sauce.coverage.coveralls: test.sauce.coverage
 	@sed -i.bak \
 		"s/^.*__split__\/lib/SF:lib/g" \
 		coverage/lcov.info
