@@ -11,6 +11,7 @@ CHROME_DRIVER=test/services/chromedriver
 MOCHA=node_modules/mocha/bin/mocha
 COVERALLS=node_modules/coveralls/bin/coveralls.js
 CODECLIMATE=node_modules/.bin/codeclimate
+SPACEJAM=node_modules/.bin/spacejam
 
 ################################################################################
 # variables
