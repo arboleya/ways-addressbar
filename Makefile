@@ -82,18 +82,12 @@ test.sauce.connect.run:
 
 
 test: test.fixture.build.prod
-	@$(MOCHA) --compilers coffee:coffee-script \
-		--ui bdd \
-		--reporter spec \
-		--timeout 600000 \
-		test/tests/runner.coffee --env='local'
+	@$(MOCHA) --ui bdd --reporter spec --timeout 600000 \
+						test/tests/runner.js --env='local'
 
 test.cover: test.fixture.build.split
-	@$(MOCHA) --compilers coffee:coffee-script \
-		--ui bdd \
-		--reporter spec \
-		--timeout 600000 \
-		test/tests/runner.coffee --env='local' --coverage
+	@$(MOCHA) --ui bdd --reporter spec --timeout 600000 \
+						test/tests/runner.js --env='local' --coverage
 
 test.cover.preview: test.cover
 	@cd coverage/lcov-report && python -m SimpleHTTPServer 8080
@@ -102,18 +96,12 @@ test.cover.preview: test.cover
 
 
 test.sauce: test.fixture.build.prod
-	@$(MOCHA) --compilers coffee:coffee-script \
-	--ui bdd \
-	--reporter spec \
-	--timeout 600000 \
-	test/tests/runner.coffee --env='sauce labs'
+	@$(MOCHA) -ui bdd -reporter spec -timeout 600000 \
+					test/tests/runner.js --env='sauce labs'
 
 test.sauce.cover: test.fixture.build.split
-	@$(MOCHA) --compilers coffee:coffee-script \
-		--ui bdd \
-		--reporter spec \
-		--timeout 600000 \
-		test/tests/runner.coffee --env='sauce labs' --coverage
+	@$(MOCHA) --ui bdd --reporter spec --timeout 600000 \
+						test/tests/runner.js --env='sauce labs' --coverage
 
 test.sauce.cover.coveralls: test.sauce.cover
 	@sed -i.bak \
