@@ -60,41 +60,41 @@ exports['sauce labs'] = function() {
     /**
      * internet explorer
      */
-    env('Windows XP'  , 'internet explorer' , 7),
-    env('Windows XP'  , 'internet explorer' , 8),
-    env('Windows XP'  , 'internet explorer' , 9),
-    env('Windows 7'   , 'internet explorer' , 8),
-    env('Windows 7'   , 'internet explorer' , 9),
-    env('Windows 7'   , 'internet explorer' , 10),
-    env('Windows 7'   , 'internet explorer' , 11),
-    env('Windows 8'   , 'internet explorer' , 10),
-    env('Windows 8.1' , 'internet explorer' , 11),
+    env('Windows XP'  , 'internet explorer' , '7'),
+    env('Windows XP'  , 'internet explorer' , '8'),
+    // env('Windows XP'  , 'internet explorer' , 9),
+    env('Windows 7'   , 'internet explorer' , '8'),
+    env('Windows 7'   , 'internet explorer' , '9'),
+    env('Windows 7'   , 'internet explorer' , '10'),
+    env('Windows 7'   , 'internet explorer' , '11'),
+    env('Windows 8'   , 'internet explorer' , '10'),
+    env('Windows 8.1' , 'internet explorer' , '11'),
 
     /**
      * ios / safari
      */
-    env('OS X 10.10' , 'ipad', 6.0, 'iPad Simulator'),
-    env('OS X 10.10' , 'ipad', 6.1, 'iPad Simulator'),
-    env('OS X 10.10' , 'ipad', 7.0, 'iPad Simulator'),
-    env('OS X 10.10' , 'ipad', 7.1, 'iPad Simulator'),
-    env('OS X 10.10' , 'ipad', 8.1, 'iPad Simulator'),
-    env('OS X 10.10' , 'ipad', 8.2, 'iPad Simulator'),
-    env('OS X 10.10' , 'ipad', 8.3, 'iPad Simulator'),
-    env('OS X 10.10' , 'iphone', 6.0, 'iPhone Simulator'),
-    env('OS X 10.10' , 'iphone', 6.1, 'iPhone Simulator'),
-    env('OS X 10.10' , 'iphone', 7.0, 'iPhone Simulator'),
-    env('OS X 10.10' , 'iphone', 7.1, 'iPhone Simulator'),
-    env('OS X 10.10' , 'iphone', 8.1, 'iPhone Simulator'),
-    env('OS X 10.10' , 'iphone', 8.2, 'iPhone Simulator'),
-    env('OS X 10.10' , 'iphone', 8.3, 'iPhone Simulator'),
+    env('OS X 10.10' , 'ipad'   , '6.0' , 'iPad Simulator'),
+    env('OS X 10.10' , 'ipad'   , '6.1' , 'iPad Simulator'),
+    env('OS X 10.10' , 'ipad'   , '7.0' , 'iPad Simulator'),
+    env('OS X 10.10' , 'ipad'   , '7.1' , 'iPad Simulator'),
+    env('OS X 10.10' , 'ipad'   , '8.1' , 'iPad Simulator'),
+    env('OS X 10.10' , 'ipad'   , '8.2' , 'iPad Simulator'),
+    env('OS X 10.10' , 'ipad'   , '8.3' , 'iPad Simulator'),
+    env('OS X 10.10' , 'iphone' , '6.0' , 'iPhone Simulator'),
+    env('OS X 10.10' , 'iphone' , '6.1' , 'iPhone Simulator'),
+    env('OS X 10.10' , 'iphone' , '7.0' , 'iPhone Simulator'),
+    env('OS X 10.10' , 'iphone' , '7.1' , 'iPhone Simulator'),
+    env('OS X 10.10' , 'iphone' , '8.1' , 'iPhone Simulator'),
+    env('OS X 10.10' , 'iphone' , '8.2' , 'iPhone Simulator'),
+    env('OS X 10.10' , 'iphone' , '8.3' , 'iPhone Simulator'),
 
     /**
      * android / browser
      */
-    env('Linux' , 'android', 4.2, 'LG Nexus 4 Emulator'),
-    env('Linux' , 'android', 4.3, 'LG Nexus 4 Emulator'),
-    env('Linux' , 'android', 4.4, 'LG Nexus 4 Emulator'),
-    env('Linux' , 'android', 4.2, 'Samsung Galaxy Tab 3 Emulator'),
+    env('Linux' , 'android', '4.2', 'LG Nexus 4 Emulator'),
+    env('Linux' , 'android', '4.3', 'LG Nexus 4 Emulator'),
+    env('Linux' , 'android', '4.4', 'LG Nexus 4 Emulator'),
+    env('Linux' , 'android', '4.2', 'Samsung Galaxy Tab 3 Emulator'),
   ];
 };
 
