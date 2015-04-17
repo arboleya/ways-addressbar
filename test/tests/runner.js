@@ -7,6 +7,7 @@ var env   = opt.env;
 var cover = opt.coverage;
 
 var browsers = require('./utils/browsers')[env]();
+
 var hook     = require('./utils/hook');
 var server   = require('./utils/server');
 var coverage = require('./utils/coverage');
@@ -46,19 +47,11 @@ after(function(done) {
 
 describe("[" + env + "]", function() {
 
-  var caps, i, len, _results;
-  var results = []
+  var caps, i, results = [];
   
   for (var i = 0; i < browsers.length; i++) {
     
-    var caps = browsers[i];
-
-    caps.name = caps.tags[0] + ' / ' + caps.tags.slice(1).join(' - ');
-
-    if (env === 'local') {
-      caps.platform = null;
-      caps.version = null;
-    }
+    caps = browsers[i];
 
     describe("[" + caps.name + "]", function() {
 
