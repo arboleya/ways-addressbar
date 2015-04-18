@@ -172,8 +172,11 @@ deps.upgrade:
 	@$(NPM_CHECK) -u
 
 ################################################################################
-# publish / re-publish
+# sync & publish
 ################################################################################
+
+sync.master:
+	git pull origin master && git push origin master
 
 publish:
 	git tag -a $(VERSION) -m "Releasing $(VERSION)"
