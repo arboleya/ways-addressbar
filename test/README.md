@@ -57,3 +57,7 @@ Running tests:
 ````
 make test.saucelabs
 ````
+
+And etc.. all the same, like Selenium, but now against Sauce Labs.
+
+For more info, the Makefile at the repo root dir.
