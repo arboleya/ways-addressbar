@@ -1,3 +1,17 @@
+env:
+  global:
+    # SAUCE USERNAME
+    - secure: "EUNrdNijFzmxaLGyJGsxDbFSTweF3w/YuCv/CJRO66T8rSiCntvWZTr3/kyc1Tyct1KhRUSIRJZF9AYPWuRlcUufK1AH1ufQ+9aXSEwUt71BtJW2+C8Kr5k1/haiatCsBfFPBZqUl0LKck0BqKYK8F+DZtgKyZ0vzFprom/i73Y="
+
+    # SAUCE ACCESS KEY
+    - secure: "Uyw4Qbh+tK51WgFbGN0b1SQPsnCZ0iLbrQtCDDHcuEo+Z/4gc8ZubWV1w56XXkMCbAmo6iWdGH+ZFTTPeiyYJhVjB1lptMc7uYL1C+3r3DVF/niXSJSiamNTaX7fDH9ZjRYc/Bns5BvDzjM2pEps3fduOEIeB9Sg7+T9gW0JCUA="
+
+    # COVERALLS_REPO_TOKEN
+    - secure: "UAN6kSjAPeDmWhcjSv6BOkaBOy9nteMWHB9S+wfjd4Aq6ZU//TYZKPiDt7VElKqkVoqCbm3ZYkuv5dByQsDDbieVtlA8dezwMbGlE1wkxZ+KJU0Zu6gAJ8DVOiTMS6SAn1b13Drozm6FtLoSKHZgWtUf//M0Yo3z+I+JqWus7Z4="
+
+    # CODECLIMATE_REPO_TOKEN
+    - secure: "EPFO01UONo0gbLp15ghzYZy6kn3hV+4W8k7u9SKq6OTIY3XbhomVshmtf02OfFJTVVNTBcSGyM+bSf2bBAsd/RPrsmrVbKRKu3KOfdzF/rlxcmxlTyahIojOnRBJSYjBKhowrazF+hB5Vdae0r0AJv0hgGOGI8cRquKRwv1c/RU="
+
 language: node_js
 
 node_js:
@@ -12,8 +26,3 @@ install:
 script:
   - make test.sauce.cover.coveralls
   - make test.meteor.headless
-
-env:
-  global:
-    - secure: awjabxv2TykGIZw94OS2kEArstjNuptTkEs66u0Grebs4Y1VoF5SruuePmLB8VD+9lPH87Sx1wCBn/Wi7LHQr1hEXoJtu3TTQ0EDKVwcNoOwreLShjD36MWz/tJgDGPLVyYkIGwmO43vZtbE0wggVbbX6mSzZ5ZbqoyOVHOknJo=
-    - secure: D+jEOx6sW5FcKfmvExYko4CwLBuC0f2N1rAHxvzAgThfE/HksSKc/4GKyAWe+HFAcdiaERu2fl/JhSTN3pFGJh4o2yiykUCX5H1b05k8uFzcbbnXzi/VlvYQHnRzdF8bQZxSysECej9KWWsolNK7nDPmvItvEFAVRTwzrGKB8UE=
