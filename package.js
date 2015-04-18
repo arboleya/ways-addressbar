@@ -9,7 +9,7 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.use('arboleya:happens', 'client');
+  api.use('arboleya:happens@0.6.0', 'client');
   api.versionsFrom('1.0');
   api.addFiles('lib/hash.js', 'client');
   api.addFiles('lib/history.js', 'client');
