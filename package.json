@@ -2,7 +2,7 @@
   "name": "ways-addressbar",
   "version": "0.2.0",
   "author": "Anderson Arboleya <anderson@arboleya.me>",
-  "description": "AddressBar plugin for Ways, supporting pushState and #hash urls",
+  "description": "AddressBar plugin for Ways, supporting /pushState and #hash urls",
   "keywords": [
     "flow",
     "router",

@@ -5,7 +5,7 @@
   "authors": [
     "Anderson Arboleya <anderson@arboleya.me>"
   ],
-  "description": "AddressBar plugin for Ways, supporting pushState and #hash urls",
+  "description": "AddressBar plugin for Ways, supporting /pushState and #hash urls",
   "main": "lib/index.js",
   "moduleType": [
     "amd",

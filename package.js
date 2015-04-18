@@ -3,7 +3,7 @@ var name = 'arboleya:ways-addressbar';
 Package.describe({
   name: name,
   version: '0.2.0',
-  summary: 'AddressBar plugin for Ways, supporting pushState and #hash urls',
+  summary: 'AddressBar plugin for Ways, supporting /pushState and #hash urls',
   git: 'https://github.com/arboleya/ways-addressbar',
   documentation: 'README.md'
 });
