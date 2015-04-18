@@ -1,9 +1,10 @@
 [![Sauce Test Status](https://saucelabs.com/buildstatus/ways-addressbar)](https://saucelabs.com/u/ways-addressbar)
-[![Build Status](https://travis-ci.org/arboleya/ways-addressbar.svg?branch=master)](https://travis-ci.org/arboleya/ways-addressbar)
-[![Coverage Status](https://coveralls.io/repos/arboleya/ways-addressbar/badge.svg?branch=master)](https://coveralls.io/r/arboleya/ways-addressbar?branch=master)
+[![Build Status](https://travis-ci.org/arboleya/ways-addressbar.svg)](https://travis-ci.org/arboleya/ways-addressbar)
+[![Coverage Status](https://coveralls.io/repos/arboleya/ways-addressbar/badge.svg)](https://coveralls.io/r/arboleya/ways-addressbar)
 [![Code Climate](https://codeclimate.com/repos/553294cfe30ba06de9003489/badges/7cba522892605b32602c/gpa.svg)](https://codeclimate.com/repos/553294cfe30ba06de9003489/feed)
 [![Dependency Status](https://gemnasium.com/arboleya/ways-addressbar.svg)](https://gemnasium.com/arboleya/ways-addressbar)
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/ways-addressbar.svg)](https://saucelabs.com/u/ways-addressbar)
+
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/ways-addressbar.svg?auth=fbb31316b6b3b70a62d6697c4ce14da3)](https://saucelabs.com/u/ways-addressbar)
 
 
 # AddressBar Plugin for Ways
