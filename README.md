@@ -19,7 +19,7 @@ pushState and #hash urls.
 
 ## Usage
 
-You shouldn't use this plugin directly.
+You shouldn't install or use this plugin directly.
 
 Check Ways [docs](https://github.com/serpentem/ways).
 
