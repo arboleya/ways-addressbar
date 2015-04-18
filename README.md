@@ -1,16 +1,10 @@
-[![Selenium Test Status](https://saucelabs.com/buildstatus/ways-browser)](https://saucelabs.com/u/ways-browser)
-[![Build Status](https://travis-ci.org/serpentem/ways-browser.png?branch=master)](http://travis-ci.org/serpentem/ways-browser)
-[![Coverage Status](https://coveralls.io/repos/serpentem/ways-browser/badge.png)](https://coveralls.io/r/serpentem/ways-browser)
-[![Dependency Status](https://gemnasium.com/serpentem/ways-browser.png)](https://gemnasium.com/serpentem/ways-browser)
-[![NPM version](https://badge.fury.io/js/ways-browser.png)](http://badge.fury.io/js/ways-browser)
-[![Selenium Test Status](https://saucelabs.com/browser-matrix/ways-browser.svg)](https://saucelabs.com/u/ways-browser)
-
-<!-- [![Selenium Test Status](https://saucelabs.com/buildstatus/ways-browser)](https://saucelabs.com/u/ways-browser)
+[![Sauce Test Status](https://saucelabs.com/buildstatus/ways-addressbar)](https://saucelabs.com/u/ways-addressbar)
 [![Build Status](https://travis-ci.org/arboleya/ways-addressbar.svg?branch=master)](https://travis-ci.org/arboleya/ways-addressbar)
 [![Coverage Status](https://coveralls.io/repos/arboleya/ways-addressbar/badge.svg?branch=master)](https://coveralls.io/r/arboleya/ways-addressbar?branch=master)
-[![Code Climate](https://codeclimate.com/github/arboleya/ways-addressbar/badges/gpa.svg)](https://codeclimate.com/github/arboleya/ways-addressbar)
-[![Dependency Status](https://gemnasium.com/arboleya/ways-addressbar.png)](https://gemnasium.com/arboleya/ways-addressbar)
-[![Selenium Test Status](https://saucelabs.com/browser-matrix/ways-browser.svg)](https://saucelabs.com/u/ways-browser) -->
+[![Code Climate](https://codeclimate.com/repos/553294cfe30ba06de9003489/badges/7cba522892605b32602c/gpa.svg)](https://codeclimate.com/repos/553294cfe30ba06de9003489/feed)
+[![Dependency Status](https://gemnasium.com/arboleya/ways-addressbar.svg)](https://gemnasium.com/arboleya/ways-addressbar)
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/ways-addressbar.svg)](https://saucelabs.com/u/ways-addressbar)
+
 
 # AddressBar Plugin for Ways
 
