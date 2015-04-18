@@ -1,3 +1,6 @@
+addons:
+  sauce_connect: true
+
 env:
   global:
     # SAUCE USERNAME
@@ -21,7 +24,6 @@ node_js:
 install:
   - npm install
   - curl https://install.meteor.com | /bin/sh
-  - curl https://gist.github.com/everzet/5698159/raw/sauce_connect_setup.sh | bash
 
 script:
   - make test.sauce.coverage.coveralls
