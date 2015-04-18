@@ -22,6 +22,6 @@ Package.onUse(function(api) {
 Package.onTest(function (api) {
   api.use(name);
   api.use('tinytest');
-  api.use('arboleya:happens', 'client');
+  api.use('arboleya:ways-addressbar', 'client');
   api.addFiles('test/tests/meteor.js');
 });
