@@ -3,13 +3,12 @@ var Hook   = require('../utils/hook');
 
 exports.test = function(browser, caps, base_url, notify, cover, timeout) {
   
-  var is_ie_8_or_9;
+  var is_ie = caps.browserName === 'internet explorer';
+  var version = parseInt(caps.version);
 
-  is_ie_8_or_9 = caps.browserName === 'internet explorer';
-  is_ie_8_or_9 = is_ie_8_or_9 && (parseInt(caps.version) < 10);
-  
-  // the tests bellow runs ONLY in IE 8/9
-  if (!is_ie_8_or_9) return;
+  // abort if browser *IS NOT* IE8 or IE9
+  if (!is_ie || (version === 8 || version === 9)) return;
+
 
   /**
    * testing url type transitions
