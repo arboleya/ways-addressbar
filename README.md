@@ -9,14 +9,26 @@
 
 # AddressBar Plugin for Ways
 
-AddressBar plugin for [Ways](https://github.com/serpentem/ways), supporting both
-pushState and #hash urls.
+AddressBar plugin for [Ways](https://github.com/arboleya/ways-addressbar),
+supporting both pushState and #hash urls.
 
 ## Usage
 
 You shouldn't install or use this plugin directly.
 
-Check Ways [docs](https://github.com/serpentem/ways).
+Check Ways [docs](https://github.com/arboleya/ways-addressbar).
+
+## Repo Setup 
+
+Everything you need is inside the [Makefile](https://github.com/arboleya/ways-addressbar/blob/master/Makefile).
+
+````bash
+# start here and move along with the Makefile and the `lib` dir
+make setup
+````
+
+To run the tests, check the [Tests README](https://github.com/arboleya/ways-addressbar/tree/master/test).
+
 
 # License
 

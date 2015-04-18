@@ -1,4 +1,9 @@
-# ★ Testing
+# Testing
+
+This tests are run in two environments:
+
+1. Local Machine
+1. Sauce LAbs Virtual Machines
 
 ## 1. Testing locally
 
@@ -20,7 +25,7 @@ Running tests:
 make test
 ````
 
-#### + Tab 2 (still)
+### + Tab 2 (still)
 
 To get coverage, instead of `make test` simply run:
 
@@ -40,7 +45,17 @@ Then go to [http://localhost:8080](http://localhost:8080).
 
 ## 2. Testing on sauce labs
 
-Open two terminal tabs:
+First register a new account on [Open Sauce](https://saucelabs.com/opensauce/)
+in case you don't have one.
+
+Than exports two variables into your shell:
+
+````
+SAUCE_USERNAME=<your-user-name>
+SAUCE_ACCESS_KEY=<your-access-key>
+````
+
+Then move on with the tests, open two terminal tabs:
 
 ### + Tab 1
 
@@ -55,9 +70,27 @@ make test.sauce.connect.run
 Running tests:
 
 ````
-make test.saucelabs
+make test.sauce
 ````
 
-And etc.. all the same, like Selenium, but now against Sauce Labs.
+### + Tab 2 (still)
 
-For more info, the Makefile at the repo root dir.
+To get coverage, instead of `make test.sauce` simply run:
+
+````
+make test.sauce.coverage
+````
+
+For previewing `LCOV-HTML` report right away, run with `preview`:
+
+
+````
+make test.sauce.coverage.preview
+````
+
+# Final Notes
+
+Don't forget to check the
+[Makefile](https://github.com/arboleya/ways-addressbar/blob/master/Makefile),
+which has many targets for doing about
+everything in this repo.
