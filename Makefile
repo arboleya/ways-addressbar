@@ -181,12 +181,6 @@ publish:
 	npm publish
 	meteor publish
 
-re-publish:
-	git tag -a $(VERSION) -m "Releasing $(VERSION)" -f
-	git push origin master -f --tags
-	npm publish -f
-	meteor publish --update
-
 ################################################################################
 # OTHERS
 ################################################################################
