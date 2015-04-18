@@ -25,7 +25,7 @@ exports['sauce labs'] = function() {
 
     // safari
     env('OS X 10.6', 'safari'),
-    env('OS X 10.7', 'safari'),
+    env('OS X 10.8', 'safari'),
     env('OS X 10.9', 'safari'),
     env('OS X 10.10', 'safari'),
 
@@ -49,20 +49,21 @@ exports['sauce labs'] = function() {
     env('OS X 10.10'    , 'ipad' , '8.0' , 'iPad Simulator'),
     env('OS X 10.10'    , 'ipad' , '8.1' , 'iPad Simulator'),
     env('OS X 10.10'    , 'ipad' , '8.2' , 'iPad Simulator'),
-    env('OS X 10.10'    , 'ipad' , '8.3' , 'iPad Simulator'),
+    // env('OS X 10.10'    , 'ipad' , '8.3' , 'iPad Simulator'), // unavailable
   
     // ios / iphone
-    env('OS X 10.10'    , 'iphone' , '7.0' , 'iPhone Simulator'),
-    env('OS X 10.10'    , 'iphone' , '7.1' , 'iPhone Simulator'),
+    // env('OS X 10.10'    , 'iphone' , '7.0' , 'iPhone Simulator'), // wont work
+    // env('OS X 10.10'    , 'iphone' , '7.1' , 'iPhone Simulator'), // wont work
     env('OS X 10.10'    , 'iphone' , '8.1' , 'iPhone Simulator'),
     env('OS X 10.10'    , 'iphone' , '8.2' , 'iPhone Simulator'),
-    env('OS X 10.10'    , 'iphone' , '8.3' , 'iPhone Simulator'),
+    // env('OS X 10.10'    , 'iphone' , '8.3' , 'iPhone Simulator'), // unavailable
 
-    // android / browser
-    env('Linux' , 'android' , '4.2' , 'LG Nexus 4 Emulator')           ,
-    env('Linux' , 'android' , '4.3' , 'LG Nexus 4 Emulator')           ,
-    env('Linux' , 'android' , '4.4' , 'LG Nexus 4 Emulator')           ,
-    env('Linux' , 'android' , '4.2' , 'Samsung Galaxy Tab 3 Emulator'),
+    // android
+    env('Linux' , 'android' , '4.0' , 'Android Emulator') ,
+    env('Linux' , 'android' , '4.1' , 'Android Emulator') ,
+    env('Linux' , 'android' , '4.2' , 'Android Emulator') ,
+    env('Linux' , 'android' , '4.3' , 'Android Emulator') ,
+    env('Linux' , 'android' , '4.4' , 'Android Emulator')
   ];
 };
 
