@@ -9,14 +9,14 @@
 
 # AddressBar Plugin for Ways
 
-AddressBar plugin for [Ways](https://github.com/arboleya/ways-addressbar),
+AddressBar plugin for [Ways](https://github.com/arboleya/ways),
 supporting both pushState and #hash urls.
 
 ## Usage
 
 You shouldn't install or use this plugin directly.
 
-Check Ways [docs](https://github.com/arboleya/ways-addressbar).
+Check Ways [docs](https://github.com/arboleya/ways).
 
 ## Repo Setup 
 
