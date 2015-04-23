@@ -1,4 +1,9 @@
-0.2.0 / 2014-04-XX
+0.2.1 / 2014-04-23
+  * Re-factoring classes
+  * Fixing module wrappers
+  * Fixing meteor support
+
+0.2.0 / 2014-04-18
 ===================
  * Refactoring everything
  * Upgrading all dependencies
