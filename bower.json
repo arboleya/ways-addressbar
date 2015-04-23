@@ -8,7 +8,6 @@
   "description": "AddressBar plugin for Ways, supporting /pushState and #hash urls",
   "main": "lib/index.js",
   "moduleType": [
-    "amd",
     "globals",
     "node"
   ],
